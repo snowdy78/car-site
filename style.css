@@ -1,0 +1,239 @@
+@font-face {
+    font-family: 'Comfortaa';
+    src: url(fonts/Comfortaa-VariableFont_wght.ttf);
+}
+
+* {
+    margin:0;
+    padding:0;
+    font-family:'Comfortaa';
+}
+
+#header {
+    display:grid;
+    position: fixed;
+    grid-template-columns: 80vw 20vw;
+    grid-template-rows: 10vh;
+    
+    border-bottom-left-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+    background-color: rgb(46, 42, 56);
+}
+#header .element {
+    display:flex;
+
+    width:20vw;
+    height: 10vh;
+    align-items:center;
+    justify-content: center;
+    font-size: 3.5vh;
+    
+    color:rgb(203, 198, 226);
+    
+    background-color:rgb(80, 74, 95);
+    border-bottom-left-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+
+    text-shadow: 0.15vw 0.15vw 0.15vw black;
+    
+}
+#main-page-element {
+    cursor: pointer;
+}
+
+#reg {
+    cursor: pointer;
+}
+#account {
+    cursor: pointer;
+}
+#reg::before{
+    content: 'Регистрация';
+}
+#account::before{
+    content: 'Личный кабинет';
+
+}
+
+#content { 
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:100vw;
+    height:100vh;
+    background-image: url(img/reg.png);
+}
+#content .elem-grid {
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+    grid-template-rows: 40vh 40vh;
+}
+#content .elem-grid .e1 {
+    display:block;
+    width: 90%;
+    height: 90%;
+    background-image: url(img/c1.jpeg);
+    background-size:cover;
+    box-shadow: 0px 0px 5px 5px rgba(168, 139, 219, 0.596);
+    border-radius: 1vw;
+    justify-self: center;
+    align-self: center;
+}
+
+
+#content .elem-grid .e2 {
+    display:flex;
+    justify-self: flex-start;
+    padding-top: 2.5%;
+    align-self:flex-start;
+    color: rgb(203, 198, 226);
+    font-size: 40px;
+}
+
+#content .elem-grid .e3 {
+    display:flex;
+    justify-self: center;
+    align-self: center;
+}
+
+#content .elem-grid .e4 {
+    display:flex;
+    justify-self: flex-start;
+    align-self:center;
+}
+
+.panel1 {
+    background-color: rgb(46, 42, 56);
+    color:rgb(203, 198, 226);
+}
+
+#reg-block {
+    display:grid;
+    grid-template-columns: 40vw;
+    grid-template-rows: 5vh 40vh 5vh;
+    width: 40vw;
+    height: 50vh;
+    padding-bottom: 3vh;
+    padding-top:3vh;
+    padding-left:2vw;
+    align-items:center;
+    padding-right:2vw;
+    border-radius: 3vh;
+
+    text-align: center;
+    background-color: rgb(46, 42, 56);
+    font-size: 3.5vh;
+    color:rgb(203, 198, 226);
+}
+
+
+
+#reg-block .register {
+    display: table;
+    justify-self: center;
+}
+#reg-block .register .register-field {
+    display: inline-block table-row;
+    margin-top:3%;
+}
+
+#reg-block .register .register-field .cll {
+    display:table-cell;
+    font-size:2vh;
+    width: 17vw;
+    height:4vh;
+    text-align: right;
+}
+
+#reg-block .register input[type=text] {
+    width:15vw;
+    height:4vh;
+    padding-left:1vw;
+    font-size:1.5vh;
+
+}
+#reg-block .register input[type=password] {
+    width:15vw;
+    height:4vh;
+    padding-left:1vw;
+    font-size:2vh;
+
+}
+#reg-block .button-panel {
+    display:flex;
+    justify-self:flex-end;
+    align-items: center;
+} 
+
+#reg-block .back-button-field {
+    display:grid;
+    grid-template-columns: 1vw 7vw;
+    grid-template-rows: 5vh;
+    width:fit-content;
+    height:fit-content;
+    justify-self:end;
+    align-items: center;
+    cursor:pointer
+}
+
+#reg-block .button-panel input[type=button] {
+    height:4vh;
+    font-size:2vh;
+}
+
+
+
+.text-input {
+    border-radius: 2vh;
+    background-color:rgb(80, 74, 95);
+    border:0;
+    color:rgb(174, 169, 202);
+}
+
+.button {
+    color:rgb(226, 211, 255);
+    background-color:rgb(130, 99, 211);
+    border-radius: 2vh;
+    padding-left:1vw;
+    padding-right:1vw;
+    border:0;
+    transition: 0.1s, color 1s;
+    cursor:pointer;
+}
+#back-button {
+    background:none;
+    color:rgb(226, 211, 255);
+    font-size:1vh;
+}
+#cac-button {
+    width:10vw;
+}
+#back-button .button {
+    cursor:pointer;
+}
+
+.arrow-left {
+    width:10px;
+    height:10px;
+    border-style:solid;
+    border-color:rgb(226, 211, 255);
+    border-top:2px;
+    border-right:2px;
+    transform:rotate(45deg)
+}
+
+#reg-block input[type=button]:active {
+    margin-top:calc(3% + 3px);
+}
+
+#reg-block .register input[type=text]:focus {
+    outline: none; 
+    background-color:rgb(39, 34, 48);
+    color:rgb(170, 166, 194);
+}
+
+#reg-block .register input[type=password]:focus {
+    outline: none; 
+    background-color:rgb(39, 34, 48);
+    color:rgb(170, 166, 194);
+}
