@@ -22,12 +22,14 @@
 #header .element {
     display:flex;
 
-    width:20vw;
+    width:fit-content;
+    min-width: 18vw;
     height: 10vh;
     align-items:center;
     justify-content: center;
     font-size: 3.5vh;
-    
+    padding-left:1vw;
+    padding-right:1vw;
     color:rgb(203, 198, 226);
     
     background-color:rgb(80, 74, 95);
@@ -63,40 +65,59 @@
     height:100vh;
     background-image: url(img/reg.png);
 }
-#content .elem-grid {
+#content .t-grid {
     display: grid;
-    grid-template-columns: 50vw 50vw;
-    grid-template-rows: 40vh 40vh;
+    grid-template-columns: 100vw; 
+    grid-template-rows:  calc(40vh + 20px)  calc(40vh + 20px);
+    padding-top:20px;
 }
-#content .elem-grid .e1 {
+#content .t-grid .descr-grid {
+    display: grid;
+    grid-template-columns: 40vw 40vw;
+    grid-template-rows: 40vh;
+    justify-self: center;
+    align-self:center;
+    background-color: rgb(38, 35, 48);
+    border-radius:20px;
+    margin-top:20px;
+}  
+
+
+#content .t-grid .descr-grid .img-elem {
     display:block;
     width: 90%;
     height: 90%;
-    background-image: url(img/c1.jpeg);
+    justify-self: center;
+    align-self: center;
     background-size:cover;
     box-shadow: 0px 0px 5px 5px rgba(168, 139, 219, 0.596);
     border-radius: 1vw;
-    justify-self: center;
-    align-self: center;
 }
 
-
-#content .elem-grid .e2 {
+#content .t-grid .descr-grid .txt-elem {
     display:flex;
-    justify-self: flex-start;
-    padding-top: 2.5%;
-    align-self:flex-start;
     color: rgb(203, 198, 226);
-    font-size: 40px;
+    font-size: 4vh;
 }
 
-#content .elem-grid .e3 {
+#e1 {
+    background-image: url(img/c1.jpeg);
+}
+
+
+#e2 {
+    justify-self: flex-start;
+    align-self:center;
+    
+}
+
+#e3 {
     display:flex;
     justify-self: center;
     align-self: center;
 }
 
-#content .elem-grid .e4 {
+#e4 {
     display:flex;
     justify-self: flex-start;
     align-self:center;
