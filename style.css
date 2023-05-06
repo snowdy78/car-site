@@ -12,27 +12,29 @@
 #header {
     display:grid;
     position: fixed;
-    grid-template-columns: 80vw 20vw;
-    grid-template-rows: 10vh;
+    grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
+    grid-template-rows: 7vh;
     
     border-bottom-left-radius: 1vw;
     border-bottom-right-radius: 1vw;
-    background-color: rgb(46, 42, 56);
+    background-color: rgb(29, 27, 34);
+    box-shadow: 0px 1px 5px 1px black;
 }
 #header .element {
     display:flex;
 
     width:fit-content;
-    min-width: 18vw;
-    height: 10vh;
-    align-items:center;
+    min-width: 14vw;
+    height: inherit;
     justify-content: center;
+    align-items: center;
+    justify-self: center;
     font-size: 3.5vh;
     padding-left:1vw;
     padding-right:1vw;
-    color:rgb(203, 198, 226);
+    color:rgb(223, 223, 223);
     
-    background-color:rgb(80, 74, 95);
+    background-color:rgb(67, 63, 73);
     border-bottom-left-radius: 1vw;
     border-bottom-right-radius: 1vw;
 
@@ -43,27 +45,15 @@
     cursor: pointer;
 }
 
-#reg {
-    cursor: pointer;
-}
-#account {
-    cursor: pointer;
-}
-#reg::before{
-    content: 'Регистрация';
-}
-#account::before{
-    content: 'Личный кабинет';
-
-}
 
 #content { 
     display:flex;
+    padding-top: 7vh;
+    min-height:93vh;
     align-items: center;
     justify-content: center;
-    width:100vw;
-    height:100vh;
-    background-image: url(img/reg.png);
+
+    background-color:rgb(83, 76, 94);
 }
 #content .t-grid {
     display: grid;
@@ -73,15 +63,35 @@
 }
 #content .t-grid .descr-grid {
     display: grid;
+    width:80vw;
+    height:40vh;
     grid-template-columns: 40vw 40vw;
     grid-template-rows: 40vh;
-    justify-self: center;
-    align-self:center;
-    background-color: rgb(38, 35, 48);
-    border-radius:20px;
+    align-self: center;
+    background-color: rgb(29, 27, 34);
     margin-top:20px;
+    transition:1s;
 }  
 
+.dg-left {
+    justify-self:start;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+}
+
+.dg-right {
+    justify-self: end;
+    
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}  
+.dg-left:hover {
+    padding-left:5vw;
+}
+.dg-right:hover {
+    padding-right:5vw;
+} 
 
 #content .t-grid .descr-grid .img-elem {
     display:block;
@@ -89,51 +99,115 @@
     height: 90%;
     justify-self: center;
     align-self: center;
-    background-size:cover;
-    box-shadow: 0px 0px 5px 5px rgba(168, 139, 219, 0.596);
+    box-shadow: 0px 0px 5px 5px rgba(143, 88, 236, 0.596);
     border-radius: 1vw;
 }
 
 #content .t-grid .descr-grid .txt-elem {
     display:flex;
-    color: rgb(203, 198, 226);
+    color: rgb(160, 152, 207);
     font-size: 4vh;
 }
 
 #e1 {
-    background-image: url(img/c1.jpeg);
+    background: url(img/c1.png) no-repeat;
+    background-size:100%;
 }
 
 
 #e2 {
-    justify-self: flex-start;
+    justify-self: flex-end;
     align-self:center;
     
 }
 
 #e3 {
-    display:flex;
-    justify-self: center;
-    align-self: center;
+    background:url(img/filial.jpg) no-repeat;
+    background-size:cover;
 }
 
 #e4 {
-    display:flex;
     justify-self: flex-start;
     align-self:center;
 }
 
-.panel1 {
-    background-color: rgb(46, 42, 56);
-    color:rgb(203, 198, 226);
+
+#content .cs-t {
+    display: table;
+    width:90%;
+    height: fit-content;
+    min-height: 93vh;
+} 
+#content .cs-tr {
+    display:table-row;
 }
+#content .cs-td {
+    display:table-cell;
+    height: fit-content;
+    
+    text-align: center;
+    vertical-align: center;
+}
+#content .cs-t .car-selection-field {
+    display:table;
+    width:90vw;
+    height:fit-content;
+    align-self: start;
+}
+#content .car-selection-field .car-selection-row {
+    display:table-row;
+    width:fit-content;
+    height:max-content;
+}
+#content .car-selection-row .car-cell {
+    display:table-cell;
+    
+    vertical-align: center;
+    text-align: center;
+}
+#content .p-grid {
+    display:grid;
+    margin:10px;
+    border-radius:2vh;
+    background-color: rgb(29, 27, 34);
+    grid-template-columns: 100%;
+    grid-template-rows: 400px 100px;
+    color:rgb(203, 198, 226)
+}
+#content .p-grid .car-img {
+    width:90%;
+    height:90%;
+    align-self:center;
+    justify-self:center;
+    background-size: cover;
+    border-radius: 15px;
+}
+#content .p-grid .car-description {
+    align-self: center;
+    justify-self: start;
+    padding-left:20px;
+}
+
+
+#content .text-header {
+    margin:2%;
+    color:rgb(40, 36, 51);
+    border:0;
+    font-size: 50px;
+    padding-bottom: 10px;
+    text-align: center;
+    border-style:solid;
+    border-color:black;
+    border-bottom: 1px solid;
+}
+
 
 #reg-block {
     display:grid;
     grid-template-columns: 40vw;
-    grid-template-rows: 5vh 40vh 5vh;
+    grid-template-rows: 5vh 50vh 5vh;
     width: 40vw;
-    height: 50vh;
+    height: 60vh;
     padding-bottom: 3vh;
     padding-top:3vh;
     padding-left:2vw;
@@ -166,14 +240,8 @@
     text-align: right;
 }
 
-#reg-block .register input[type=text] {
-    width:15vw;
-    height:4vh;
-    padding-left:1vw;
-    font-size:1.5vh;
 
-}
-#reg-block .register input[type=password] {
+#reg-block .register input {
     width:15vw;
     height:4vh;
     padding-left:1vw;
@@ -253,6 +321,14 @@
     color:rgb(170, 166, 194);
 }
 
+#reg-block .register input[type=date]:focus {
+    outline: none; 
+    background-color:rgb(39, 34, 48);
+    color:rgb(170, 166, 194);
+}
+#reg-block .register input[type=date]::-webkit-calendar-picker-indicator {
+    display:none;
+}
 #reg-block .register input[type=password]:focus {
     outline: none; 
     background-color:rgb(39, 34, 48);

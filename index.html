@@ -2,42 +2,50 @@
 <html>
     <head>
         <title>
-            Car rental
+            index drive
         </title>
         <link href="style.css" rel="stylesheet">
-        <script>
-            var is_register = false;
-        </script>
     </head>
     <body>
         <div id="header">
-            <div class="element" id="main-page-element">
-                Главная
+            <div class="element" id="main-page-element" style="justify-self: start;">
+                Index Drive
+            </div>
+            <div class="element" id="main-page-element" onclick="window.location.href='car-select.html';">
+                Аренда
+            </div>
+            <div class="element" id="main-page-element" onclick="window.location.href='cards';">
+                Оплата
+            </div>
+            <div class="element" id="main-page-element" onclick="window.location.href='branches.html';">
+                О Нас
+            </div>
+            <div class="element" id="main-page-element" style="justify-self: end;" onclick="window.location.href = 'register.html';">
+                Регистрация
             </div>
             
         </div>
         <div id="content">
+           
             <div class="t-grid">
-                <div class="descr-grid">
+                <div class="descr-grid dg-left" onclick="window.location.href='car-select.html';">
+                    <div id="e2" class="txt-elem">
+                        &gt; &gt; &gt; Аренда Автомобиля
+                    </div>
                     <div id="e1" class="img-elem">
 
                     </div>
-                    <div id="e2" class="txt-elem">
-                        Аренда Автомобиля
-                    </div>
+                    
                 </div>
-                <div class="descr-grid">
+                <div class="descr-grid dg-right" onclick="window.location.href='branches.html';">
                     <div id="e3" class="img-elem">
 
                     </div>
                     <div id="e4" class="txt-elem">
-                        asdfsda
+                        Наши филиалы &lt; &lt; &lt;
                     </div>
                 </div>
             </div>
         </div>
     </body>
-    <script src="main.js">
-
-    </script>
 </html>
