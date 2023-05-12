@@ -4,77 +4,81 @@
     font-family: 'Comfortaa';
     src: url(fonts/Comfortaa-VariableFont_wght.ttf);
 }
+@font-face {
+    font-family: 'Merriweather';
+    src: url(fonts/Merriweather-Regular.ttf)
+}
 
 * {
     margin:0;
     padding:0;
-    font-family:'Comfortaa';
-}
-body {
-    
 }
 
 #header {
     display:grid;
     position: fixed;
-    grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
+    width:100%;
+    grid-template-columns: 20% 20% 20% 20% 20%;
     grid-template-rows: 7vh;
-    
-    border-bottom-left-radius: 1vw;
-    border-bottom-right-radius: 1vw;
     background-color: rgb(29, 27, 34);
-    box-shadow: 0px 1px 5px 1px black;
 }
 #header .element {
     display:flex;
-    width:fit-content;
-    min-width:14vw;
-    height: inherit;
+    width:100%;
     justify-content: center;
     align-items: center;
     justify-self: center;
     font-size: 3.5vmin;
     padding-left:1vmin;
     padding-right:1vmin;
-    color:rgb(223, 223, 223);
-    
-    background-color:rgb(67, 63, 73);
-    border-bottom-left-radius: 1vw;
-    border-bottom-right-radius: 1vw;
+    color:rgb(214, 132, 132);
+    transform:skew(-15deg);
+    border:0;
+    border-left: 1px;
+    border-style: solid;
+    border-color:rgb(158, 67, 67);
 
     text-shadow: 0.15vw 0.15vw 0.15vw black;
     
+}
+#header .element:first-child {
+    border-left:0;
+}
+#header .element:last-child {
+    border-right:0;
 }
 #main-page-element {
     cursor: pointer;
 }
 
 
+
+
 #content { 
     display:grid;
-    padding-top:7vh;
-    grid-template-columns: 100vw;
-    grid-template-rows: 93vh;
+    font-family:'Comfortaa';
+
+    padding-top:7vh; 
+    width:100%;
+    height:fit-content;
+    grid-template-columns: 100%;
+    grid-template-rows: fit-content;
     
     background-color:rgb(83, 76, 94);
 }
-#content .descr-row {
-    display: table table-row;
-    width:inherit;
-    
+#content .t-grid {
+    display: grid;
+    grid-template-columns: 100%; 
+    grid-template-rows:  42vh  42vh;
+    padding-top:20px;
 }
 
-#content .descr-cell {
-    display:table-cell;
-    vertical-align: middle;
-    text-align: center;
-}
-
-#content .descr-cell .descr-grid {
+#content .t-grid .descr-grid {
     display: grid;
     grid-template-columns: 30vw 30vw;
     grid-template-rows: 40vh;
     background-color: rgb(29, 27, 34);
+    align-self: center;
     transition-duration:1s;
     transition-property: padding;
     margin-top:20px
@@ -93,10 +97,6 @@ body {
     border-bottom-left-radius: 20px;
     
 }  
-
-.news {
-    height:50vh;
-}
 
 .dg-left:hover {
     padding-left:5vw;
@@ -151,18 +151,19 @@ body {
 #content .cs-t {
     display: table;
     width:90%;
+    min-height:93vh;
+    justify-self: center;
     height: fit-content;
-    min-height: 93vh;
 } 
 #content .cs-tr {
     display:table-row;
+    height:fit-content;
 }
 #content .cs-td {
     display:table-cell;
     height: fit-content;
     
     text-align: center;
-    vertical-align: center;
 }
 #content .cs-t .car-selection-field {
     display:table;
@@ -198,16 +199,21 @@ body {
     background-size: cover;
     border-radius: 15px;
 }
-#content .p-grid .car-description {
-    align-self: center;
-    justify-self: start;
+#content .p-grid .car-descr-block {
+    display:grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1.8rem 1.5rem 1.5rem;
     padding-left:20px;
+    padding-right:20px;
+}
+#content .car-descr-block>.car-name {
+    font-size:1.8em;
 }
 
 
 #content .text-header {
     margin:2%;
-    color:rgb(40, 36, 51);
+    color:rgb(23, 20, 31);
     border:0;
     font-size: 50px;
     padding-bottom: 10px;
@@ -218,10 +224,109 @@ body {
 }
 
 
+
+.news-block {
+    width:inherit;
+    height:fit-content;
+    margin-top: 50px;
+    background-color: rgb(29, 27, 34);
+    color:rgb(245, 184, 184)
+}
+
+.news-block h1 {
+    text-align: center;
+    font-size: 3em;
+    line-height:4em;
+    font-weight: bold;
+}
+.news-block .news-grid {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: calc(73vh - 4em);
+}
+.news-grid>.new {
+    width:90%;
+    font-size:2em;
+    text-align: justify;
+    word-break: break-all;
+    padding: 5%;
+}
+
+#footer {
+    width:100%;
+    height:fit-content;
+    background-color: rgb(29, 27, 34);
+    font-size: 1.3em;
+    color:rgb(214, 132, 132);
+    border:0;
+    border-top: 1px;
+    border-style:solid;
+    border-color: rgb(158, 67, 67);
+}
+#footer .page-block {
+    display:flex;
+
+    width:100%;
+    align-items: center;
+    justify-content: center;
+}
+#footer .page-lists {
+    margin-top: 1%;
+    display: grid;
+    grid-template-columns: max-content max-content;
+}
+#footer .page-list:first-child {
+    border:0;
+    border-right:1px;
+    border-style: solid; 
+    border-color:rgb(158, 67, 67);
+}
+#footer .page-lists>.page-list {
+    justify-self: center;
+    padding: 5%;
+    margin-left:10%;
+}
+#footer .page-list>a {
+    display:block;
+    text-decoration: underline;
+    text-decoration-color: rgb(214, 132, 132);
+    color:rgb(214, 132, 132);
+}
+#footer .page-list>a:hover {
+    text-decoration: none;
+}
+#footer .page-list>.page {
+    background: linear-gradient(0deg, rgb(158, 67, 67) 2%, rgb(29, 27, 34) 3%) no-repeat;
+    background-size: 50px auto;
+    background-position-x:center;
+    text-align:center;
+    padding-top:1em;
+    padding-bottom:1em;
+
+}
+#footer .phone-number {
+    line-height:3em;
+}
+#reg-content {
+    display:grid;
+    width:100%;
+    height:100vh;
+    font-family: 'Merriweather';
+    grid-template-columns: 100%;
+    grid-template-rows: fit-content;
+    
+    background-color:rgb(83, 76, 94);
+}
 #reg-block {
     display:grid;
-    grid-template-columns: 40vw;
+    grid-template-columns: 100%;
     grid-template-rows: 5vh 50vh 5vh;
+    background: linear-gradient(135deg, rgb(83, 76, 94) 15px, rgb(165, 67, 67) 0) top left,
+                linear-gradient(-135deg, rgb(83, 76, 94) 15px, rgb(165, 67, 67) 0) top right,
+                linear-gradient(-45deg, rgb(83, 76, 94) 15px, rgb(165, 67, 67) 0) bottom right,
+                linear-gradient(45deg, rgb(83, 76, 94) 15px, rgb(165, 67, 67) 0) bottom left;
+    background-repeat: no-repeat;
+    background-size: 50% 51.2%;
     padding-bottom: 3vh;
     padding-top:3vh;
     padding-left:2vw;
@@ -229,12 +334,11 @@ body {
     align-self:center;
     justify-self: center;
     padding-right:2vw;
-    border-radius: 3vh;
 
     text-align: center;
-    background-color: rgb(46, 42, 56);
-    font-size: 3.5vh;
-    color:rgb(203, 198, 226);
+    background-color: rgb(29, 27, 34);
+    font-size: 1.2em;
+    color:rgb(0, 0, 0);
 }
 
 
@@ -266,7 +370,7 @@ body {
 }
 #reg-block .button-panel {
     display:flex;
-    justify-self:flex-end;
+    justify-content:flex-end;
     align-items: center;
 } 
 
@@ -283,21 +387,21 @@ body {
 
 #reg-block .button-panel input[type=button] {
     height:4vh;
-    font-size:2vh;
+    font-size:1.2em;
 }
 
 
 
 .text-input {
     border-radius: 2vh;
-    background-color:rgb(80, 74, 95);
+    background-color:rgb(27, 3, 3);
     border:0;
-    color:rgb(174, 169, 202);
+    color:rgb(139, 0, 0);
 }
 
 .button {
-    color:rgb(226, 211, 255);
-    background-color:rgb(130, 99, 211);
+    color:rgb(131, 40, 40);
+    background-color:rgb(10, 10, 10);
     border-radius: 2vh;
     padding-left:1vw;
     padding-right:1vw;
@@ -307,46 +411,49 @@ body {
 }
 #back-button {
     background:none;
-    color:rgb(226, 211, 255);
-    font-size:1vh;
+    color:black;
+    font-family: 'Merriweather';
+    font-size:1em;
 }
 #cac-button {
-    width:10vw;
+    width:fit-content;
+    padding-left:5%;
+    padding-right:5%;
 }
 #back-button .button {
     cursor:pointer;
 }
 
 .arrow-left {
-    width:10px;
-    height:10px;
+    width: 10px;
+    height: 10px;
     border-style:solid;
-    border-color:rgb(226, 211, 255);
+    border-color:black;
     border-top:2px;
     border-right:2px;
     transform:rotate(45deg)
 }
 
 #reg-block input[type=button]:active {
-    margin-top:calc(3% + 3px);
+    margin-top:3px;
 }
 
 #reg-block .register input[type=text]:focus {
     outline: none; 
-    background-color:rgb(39, 34, 48);
-    color:rgb(170, 166, 194);
+    background-color:rgb(0, 0, 0);
+    color:rgb(114, 12, 12);
 }
 
 #reg-block .register input[type=date]:focus {
     outline: none; 
-    background-color:rgb(39, 34, 48);
-    color:rgb(170, 166, 194);
+    background-color:rgb(0, 0, 0);
+    color:rgb(114, 12, 12);
 }
 #reg-block .register input[type=date]::-webkit-calendar-picker-indicator {
     display:none;
 }
 #reg-block .register input[type=password]:focus {
     outline: none; 
-    background-color:rgb(39, 34, 48);
-    color:rgb(170, 166, 194);
+    background-color:rgb(0, 0, 0);
+    color:rgb(114, 12, 12);
 }
