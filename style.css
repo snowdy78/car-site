@@ -6,44 +6,93 @@
 }
 @font-face {
     font-family: 'Merriweather';
-    src: url(fonts/Merriweather-Regular.ttf)
+    src: url(fonts/Merriweather-Regular.ttf);
 }
-
+@font-face {
+    font-family: 'Nunito';
+    src: url(fonts/Nunito-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Kaushan';
+    src: url(fonts/KaushanScript-Regular.ttf);
+}
 * {
     margin:0;
     padding:0;
 }
 
+:root {
+    --header-bg-color: #33323A;
+    --bg-color: #AFA9C6;
+    --sec-bg-color: #464355;
+    --thd-bg-color: #C02020;
+    --header-font-color: #CFCDDB;
+    --header-border-color: #05001A;
+    --font-color-l: #CFCDDB; /* light */
+    --font-color-d: #27262B; /* dark */
+    --border-color: #33323A;
+    --sec-border-color: #05001A;
+    --sec-font-color: rgb(107, 13, 13);
+    --logo-color: rgb(255, 0, 0);
+    --sec-logo-color: #C02020;
+}
+
+
 #header {
     display:grid;
     position: fixed;
     width:100%;
+
     grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 7vh;
-    background-color: rgb(29, 27, 34);
+    grid-template-rows: 4em;
+    background-color: var(--header-bg-color);
 }
 #header .element {
     display:flex;
     width:100%;
+    font-family: 'Nunito';
+
     justify-content: center;
     align-items: center;
     justify-self: center;
-    font-size: 3.5vmin;
-    padding-left:1vmin;
-    padding-right:1vmin;
-    color:rgb(214, 132, 132);
+    font-size: 2em;
+    padding-left:5%;
+    padding-right:5%;
+    color:var(--header-font-color);
+    background:transparent;
     transform:skew(-15deg);
     border:0;
     border-left: 1px;
     border-style: solid;
-    border-color:rgb(158, 67, 67);
-
-    text-shadow: 0.15vw 0.15vw 0.15vw black;
-    
+    border-color:var(--header-border-color);
 }
 #header .element:first-child {
     border-left:0;
+    font-family: 'Kaushan';
+    color:var(--logo-color);
+    text-shadow: 0 1px 0px var(--sec-logo-color);
 }
+#header .element:first-child::before {
+    content: 'Index Drive';
+}
+
+@media screen and (max-width:956px) {
+    #header .element {
+        font-size:1.5em;
+    }
+}
+@media screen and (max-width:732px) {
+    #header .element {
+        display:none;
+    }
+    #header .element:first-child {
+        display:flex;
+    }
+    #header .element:first-child::before {
+        content: 'ID';
+    }
+}
+
 #header .element:last-child {
     border-right:0;
 }
@@ -58,13 +107,18 @@
     display:grid;
     font-family:'Comfortaa';
 
-    padding-top:7vh; 
+    padding-top:4em; 
     width:100%;
     height:fit-content;
     grid-template-columns: 100%;
     grid-template-rows: fit-content;
     
-    background-color:rgb(83, 76, 94);
+    background-color:var(--bg-color);
+}
+#content .t-grid-bg {
+    height: calc(84vh + 70px);
+    background: var(--bg-color) no-repeat;
+    background-size: 100% 100%;
 }
 #content .t-grid {
     display: grid;
@@ -77,7 +131,8 @@
     display: grid;
     grid-template-columns: 30vw 30vw;
     grid-template-rows: 40vh;
-    background-color: rgb(29, 27, 34);
+    background-color: var(--sec-bg-color);
+    color: rgb(8, 0, 0);
     align-self: center;
     transition-duration:1s;
     transition-property: padding;
@@ -118,33 +173,27 @@
     height: 35vh;
     justify-self: center;
     align-self: center;
-    box-shadow: 0px 0px 5px 5px rgba(143, 88, 236, 0.596);
-    background-size:cover;
     background-position:center;
-    border-radius: 1vw;
+    border-radius: 2em;
+    cursor:pointer;
 }
 
 #content .descr-grid .txt-elem {
-    color: rgb(160, 152, 207);
     font-size: 3vmin;
     justify-self: center;
     align-self: center;
-
+    cursor:pointer;
 }
 
 #e1 {
     background: url(img/c1.png) no-repeat;
-}
-
-
-#e2 {
+    background-size:contain;
 }
 
 #e3 {
-    background:url(img/filial.jpg) no-repeat;
-}
+    background:url(img/filial.png) no-repeat;
+    background-size:contain;
 
-#e4 {
 }
 
 
@@ -174,11 +223,10 @@
 #content .car-selection-field .car-selection-row {
     display:table-row;
     width:fit-content;
-    height:max-content;
+    height:20vh;
 }
 #content .car-selection-row .car-cell {
     display:table-cell;
-    
     vertical-align: center;
     text-align: center;
 }
@@ -186,10 +234,11 @@
     display:grid;
     margin:10px;
     border-radius:2vh;
-    background-color: rgb(29, 27, 34);
     grid-template-columns: 100%;
     grid-template-rows: 400px 100px;
-    color:rgb(203, 198, 226)
+    background: var(--sec-bg-color);
+    color:var(--font-color-l);
+
 }
 #content .p-grid .car-img {
     width:90%;
@@ -202,18 +251,28 @@
 #content .p-grid .car-descr-block {
     display:grid;
     grid-template-columns: 100%;
-    grid-template-rows: 1.8rem 1.5rem 1.5rem;
+    grid-template-rows: 35% 65%;
     padding-left:20px;
     padding-right:20px;
 }
 #content .car-descr-block>.car-name {
-    font-size:1.8em;
+    font-size:1.5rem;
+    align-self:center;
 }
+#content .car-descr-block>.button {
+    width: 60%;
+    height: 80%;
+    font-family: 'Comfortaa';
 
+    color: var(--sec-font-color);
+    background: var(--thd-bg-color);
+    justify-self:center;
+    font-size: 1.3em;
+}
 
 #content .text-header {
     margin:2%;
-    color:rgb(23, 20, 31);
+    color:var(--font-color-d);
     border:0;
     font-size: 50px;
     padding-bottom: 10px;
@@ -228,13 +287,13 @@
 .news-block {
     width:inherit;
     height:fit-content;
-    margin-top: 50px;
-    background-color: rgb(29, 27, 34);
-    color:rgb(245, 184, 184)
+    background-color: var(--sec-bg-color);
+    color:var(--font-color-l);
 }
 
 .news-block h1 {
     text-align: center;
+    background: var(--sec-bg-color);
     font-size: 3em;
     line-height:4em;
     font-weight: bold;
@@ -250,18 +309,22 @@
     text-align: justify;
     word-break: break-all;
     padding: 5%;
+    background:linear-gradient(270deg, var(--border-color) 1px, var(--sec-bg-color) 2px);
+    background-repeat: no-repeat;
+    background-size: 100% 50%;
+    background-position: 50%;
+}
+.news-grid>.new:last-child {
+    background:none;
 }
 
 #footer {
     width:100%;
     height:fit-content;
-    background-color: rgb(29, 27, 34);
-    font-size: 1.3em;
-    color:rgb(214, 132, 132);
-    border:0;
-    border-top: 1px;
-    border-style:solid;
-    border-color: rgb(158, 67, 67);
+    font-family: 'Comfortaa';
+
+    background-color: var(--header-bg-color);
+    color: var(--font-color-d);
 }
 #footer .page-block {
     display:flex;
@@ -276,10 +339,14 @@
     grid-template-columns: max-content max-content;
 }
 #footer .page-list:first-child {
-    border:0;
-    border-right:1px;
-    border-style: solid; 
-    border-color:rgb(158, 67, 67);
+    background: linear-gradient(270deg, var(--sec-border-color) 1px, var(--header-bg-color) 2px) no-repeat;
+    background-size: auto 50%;
+    background-position-y:center;
+}
+#footer .page-lists {
+    background: linear-gradient(0deg, var(--sec-border-color) 1px, var(--header-bg-color) 2px) no-repeat;
+    background-size: 150px auto;
+    background-position-x:65%;
 }
 #footer .page-lists>.page-list {
     justify-self: center;
@@ -289,22 +356,26 @@
 #footer .page-list>a {
     display:block;
     text-decoration: underline;
-    text-decoration-color: rgb(214, 132, 132);
-    color:rgb(214, 132, 132);
+    text-decoration-color: var(--font-color-l);
+    color:var(--font-color-l);
 }
 #footer .page-list>a:hover {
     text-decoration: none;
 }
 #footer .page-list>.page {
-    background: linear-gradient(0deg, rgb(158, 67, 67) 2%, rgb(29, 27, 34) 3%) no-repeat;
+    background: linear-gradient(0deg, var(--sec-border-color) 1px, var(--header-bg-color) 2px) no-repeat;
     background-size: 50px auto;
     background-position-x:center;
     text-align:center;
     padding-top:1em;
     padding-bottom:1em;
+}
 
+#footer .page:last-child {
+    background: var(--header-bg-color);
 }
 #footer .phone-number {
+    color: var(--font-color-l);
     line-height:3em;
 }
 #reg-content {
@@ -315,7 +386,8 @@
     grid-template-columns: 100%;
     grid-template-rows: fit-content;
     
-    background-color:rgb(83, 76, 94);
+    background: url(img/reg-bg.jpg) no-repeat;
+    background-size:cover;
 }
 #reg-block {
     display:grid;
@@ -336,7 +408,7 @@
     padding-right:2vw;
 
     text-align: center;
-    background-color: rgb(29, 27, 34);
+    background-color: var(--sec-bg-color);
     font-size: 1.2em;
     color:rgb(0, 0, 0);
 }
