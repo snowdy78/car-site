@@ -5,31 +5,35 @@
             index drive
         </title>
         <link href="style.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
     </head>
     <body>
-        <div id="header">
-            <div class="element" id="main-page-element" style="justify-self: start;" onclick="window.location.href='index.html';">
+        <div id="no-log-header" class="bg-d2">
+            <div class="logo-element font-r fam-kaus" onclick="window.location.href='index.html';">
             </div>
-            <div class="element" id="main-page-element" onclick="window.location.href='car-select.html';">
+            <div class="element font-l br-d3" onclick="window.location.href='car-select.html';">
                 Аренда
             </div>
-            <div class="element" id="main-page-element" onclick="window.location.href='cards';">
+            <div class="element font-l br-d3" onclick="window.location.href='cards';">
                 Оплата
             </div>
-            <div class="element" id="main-page-element" onclick="window.location.href='branches.html';">
+            <div class="element font-l br-d3" onclick="window.location.href='branches.html';">
                 О Нас
             </div>
-            <div class="element" id="main-page-element" style="justify-self: end;" onclick="window.location.href = 'register.html';">
+            <div class="element font-l br-d3" onclick="window.location.href = 'login.html';">
+                Вход
+            </div>
+            <div class="element font-l br-d3" onclick="window.location.href = 'register.html';">
                 Регистрация
             </div>
-            
         </div>
-        <div id="content">
+        <div id="content" class="bg-l">
             
             <div class="cs-t">
                 <div class="cs-tr">
                     <div class="cs-td">
-                        <div class="text-header">
+                        <div class="text-header font-d">
                             Аренда Автомобиля
                         </div>
                     </div>
@@ -39,7 +43,7 @@
                     <div class="cs-td">
                         <div class=car-selection-field>
                             <div class=car-selection-row>
-                                <div class=car-cell>
+                                <div class="car-cell">
                                     <div class="p-grid">
                                         <div class=car-img style="background-image: url(img/c1.png);">
 
@@ -117,7 +121,7 @@
                                             <div class=car-name>
                                                 Car Name
                                             </div>
-                                            <input type="button" class="button" value="Арендовать">
+                                            <input type="button" class="button font-l" value="Арендовать">
                                         </div>
                                     </div>
                                 </div>
@@ -128,35 +132,35 @@
                     
             </div>
         </div>
-        <div id=footer>
+        <div id="footer" class="bg-d2">
             <div class=page-block>
                 <div class=page-lists>
                     <div class=page-list>
-                        <a class=page href="car-select.html">
+                        <a class="page font-gray" href="car-select.html">
                             Аренда
                         </a>
-                        <a class=page href="cards.html">
+                        <a class="page font-gray" href="cards.html">
                             Банковские карты
                         </a>
-                        <a class=page href="history.html">
+                        <a class="page font-gray" href="history.html">
                             История бронирования
                         </a>
                     </div>
                     <div class=page-list>
-                        <a class=page href="branches.html">
+                        <a class="page font-gray" href="branches.html">
                             Филиалы
                         </a>
-                        <a class=page href=about.html>
+                        <a class="page font-gray" href=about.html>
                             О Нас
                         </a>
-                        <a class=page href=profile.html>
+                        <a class="page font-gray" href=profile.html>
                             Личный кабинет
                         </a>
                     </div>
                 </div>
                 
             </div>
-            <div class=phone-number align=center>
+            <div class="phone-number font-gray" align=center>
                 Телефон: 8 (800) 555-35-3
             </div>
         </div>
