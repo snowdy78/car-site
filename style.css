@@ -27,9 +27,9 @@
     --bg-l: #AFA9C6;
     --bg-d: #464355;
     --bg-dr: #b43131;
-    --header-font-color: #CFCDDB;
+    --header-font-color: white;
     --header-border-color: #05001A;
-    --font-color-l: #CFCDDB; /* light */
+    --font-color-l: white; /* light */
     --font-color-d: #27262B; /* dark */
     --border-color: #33323A;
     --sec-border-color: #05001A;
@@ -147,60 +147,72 @@
     height:100%;
     justify-self: center;
 }
-.grid-1x-1y {
+
+#card-form {
     display:grid;
     grid-template-columns: 100%;
-    grid-template-rows: 100%;
+    grid-template-rows: 50% 20%;
 }
-.grid-3x-2y {
-    display:grid;
-    width:90%;
-    height:100%;
-    grid-template-columns: 10% 10% 80%;
-    grid-template-rows: 20% 20%;
-}
-input {
-    width:20%;
-    
-    height:fit-content;
+#add-btn {
+    font-size:2rem;
 }
 .card-label {
     width: 60%;
-    height:40%;
-    margin-top:10%;
-    justify-self: center;
-    background-color:rgb(91, 187, 91);
+    height:80%;
+    background:linear-gradient(0deg, rgb(0 96 79) 0, rgb(84 255 247) 100%);
     border-radius:20px;
+    box-shadow: 2px 3px 0px black;
     display:grid;
     grid-template-columns: 100%;
     grid-template-rows: 30% 70%;
 }
 .card-type-label {
+    height:100%;
     margin-left:5%;
     font-size: 3em;
+}
+.card-type-label .text {
+    font-size: 3rem;
+    text-shadow: 1px 3px 0px black;
+}
+.pay-system-img 
+{    
+    margin-top:2%;
+    background-repeat: no-repeat;
+    background-size: contain;
+
 }
 #visa-sys {
     background-image: url(img/visa.png);
 }
 #master-card-sys {
-    background-image:url(img/master-card.png)
+    background-image:url(img/mastercard.png);
 }
 #mir-sys{
     background-image:url(img/mir.svg);
 }
+.card-correct-label {
+    margin-right:10%;
+    color: greenyellow;
+    text-shadow: 1px 3px 0px rgb(6, 65, 6);
+    font-size:1.3em;
+}
+
 .cardin-label {
     width:100%;
     height:2em;
-    justify-self: center;
-    align-self: center;
 }
-
 .grid-col-span-3 {
     grid-column: span 3;
 }
-
+@media screen and (max-width: 846px) {
+    .card-type-label .text {
+        font-size: 2rem;
+    }
+}
 .cardin-label>input {
-    width:85%;
+    width:91%;
+    box-shadow: 2px 3px 0px black;
     font-size: 2em;
 }
 .null-border {
@@ -213,37 +225,7 @@ input {
     border:0;
 }
 
-.x-center {
-    justify-self: center;
-    justify-content: center;
-}
-.x-left {
-    justify-self: start;
-    justify-content: flex-start;
-}
-.x-right {
-    justify-self: end;
-    justify-content: flex-end;
-}
-.y-top {
-    align-self: start;
-    align-items: flex-start;
-}
 
-.y-bottom {
-    align-self: end;
-    align-items: flex-end;
-}
-.y-center {
-    align-self: center;
-    align-content: center;
-}
-.xy-center {
-    justify-self: center;
-    justify-content: center;
-    align-self: center;
-    align-content: center;
-}
 #incn {
     padding-left: 5%;
 }
@@ -264,8 +246,7 @@ input {
 }
 #incvv {
     width:20%;
-    justify-self: end;
-    margin-right: 20%
+    margin-right: 5%;
 }
 #content .t-grid {
     display: grid;
@@ -405,8 +386,11 @@ input {
     color:var(--font-color-l);
     align-self:center;
 }
-#content .car-descr-block>.button {
+.p-grid .button {
+    width:fit-content;
     height: 80%;
+}
+.button {
     font-family: 'Comfortaa';
     color:var(--font-color-l);
     background-color:var(--bg-dr);
@@ -417,8 +401,12 @@ input {
     border-color:#e91919;
     border-radius:30px;
     font-size: 1.3em;
+    transition-property: margin;
+    transition-duration:0.1s;
 }
-
+.button:active {
+    margin-top:5px;
+}
 #content .text-header {
     margin:2%;
     border:0;
@@ -616,9 +604,12 @@ input {
 #reg-block .button-panel {
     display:flex;
     width:80%;
-    justify-content:flex-end;
     align-items: center;
 } 
+#reg-block .button {
+
+    border-radius: 20px;
+}
 #reg-block .button-panel>input[type=button] {
     font-family: 'Nunito';
     height:100%;
@@ -633,16 +624,6 @@ input {
     border:0;
 }
 
-#reg-block .button {
-    border-radius: 50px;
-    padding-right:10%;
-
-    border:0;
-    justify-self:end;
-    transition: 0.1s, color 1s;
-    cursor:pointer;
-
-}
 #back-button {
     background:none;
     font-family: 'Merriweather';
@@ -650,9 +631,9 @@ input {
     font-size: 0.8em;
 }
 #cac-button {
-    padding-left:10%;
+    width:fit-content;
+    min-width: 100%;
     padding-top:1%;
-    padding-bottom:1%;
     font-size:1.5em;
 }
 
@@ -687,8 +668,12 @@ input {
     text-decoration-color: #27262B;
 }
 .font-l {
-    color: #CFCDDB;
-    text-decoration-color:#CFCDDB
+    color: white;
+    text-decoration-color:white
+}
+.font-lgray {
+    color:#CFCDDB;
+    text-decoration: #CFCDDB;
 }
 .font-r {
     color: red;
@@ -744,4 +729,101 @@ input {
 }
 .fam-merw {
     font-family: 'Merriweather';
+}
+.grid-1x-1y {
+    display:grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+}
+.grid-3x-3y {
+    display:grid;
+    width:90%;
+    height:100%;
+    grid-template-columns: 10% 10% 80%;
+    grid-template-rows: 20% 20% 20%;
+}
+.w100-box {
+    width:100%;
+} 
+.w80-box {
+    width:80%;
+} 
+.w60-box {
+    width: 60%;
+}
+.w40-box {
+    width: 40%;
+}
+.w30-box {
+    width: 30%;
+}
+.w20-box {
+    width: 20%;
+}   
+.h100-box {
+    height:100%;
+} 
+.h80-box {
+    height:80%;
+} 
+.h60-box {
+    height: 60%;
+}
+.h40-box {
+    height: 40%;
+}
+.h30-box {
+    height: 30%;
+}
+.h20-box {
+    height: 20%;
+}   
+.wrel {
+    width:fit-content;
+} 
+.wmax {
+    width:max-content;
+}
+.wmin {
+    width:min-content;
+}
+.hrel {
+    height:fit-content;
+}
+.hmax {
+    height:max-content;
+}
+.hmin {
+    height:min-content;
+}
+.x-center {
+    justify-self: center;
+    justify-content: center;
+}
+.x-left {
+    justify-self: start;
+    justify-content: flex-start;
+}
+.x-right {
+    justify-self: end;
+    justify-content: flex-end;
+}
+.y-top {
+    align-self: start;
+    align-items: flex-start;
+}
+
+.y-bottom {
+    align-self: end;
+    align-items: flex-end;
+}
+.y-center {
+    align-self: center;
+    align-content: center;
+}
+.xy-center {
+    justify-self: center;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
 }
