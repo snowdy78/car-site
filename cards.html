@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            index drive
+        </title>
+        <link href="style.css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+     </head>
+    <body>
+        <div id="no-log-header" class="bg-d2">
+            <div class="logo-element font-r fam-kaus" onclick="window.location.href='index.html';">
+            </div>
+            <div class="element font-l br-d3" onclick="window.location.href='car-select.html';">
+                Аренда
+            </div>
+            <div class="element font-l br-d3" onclick="window.location.href='cards';">
+                Оплата
+            </div>
+            <div class="element font-l br-d3" onclick="window.location.href='branches.html';">
+                О Нас
+            </div>
+            <div class="element font-l br-d3" onclick="window.location.href = 'login.html';">
+                Вход
+            </div>
+            <div class="element font-l br-d3" onclick="window.location.href = 'register.html';">
+                Регистрация
+            </div>
+        </div>
+        <div id="content" class="bg-l">
+            <div class="full-bg-no-h">
+                <div class="front-bg grid-1x-1y bg-d">
+                    <div class="card-label">
+                        <div class="grid-1x-1y">
+                            <div class="card-type-label font-white y-bottom">
+                                Банковская Карта
+                            </div>
+                        </div>
+                        <div class="grid-3x-2y xy-center">
+                            <div class="cardin-label grid-col-span-3 grid-1x-1y">
+                                <input type=text class="null-border xy-center" id=incn maxlength="19" placeholder="0000-0000-0000-0000"> 
+                            </div>
+                            <div class="cardin-label grid-1x-1y">
+                                <input type=text class="null-border xy-center" id=inmonth maxlength="2" placeholder="MM">
+                            </div>
+                            <div class="cardin-label grid-1x-1y" >
+                                <input type=text class="null-border xy-center" id=inyear maxlength="2" placeholder="YY">
+                            </div>
+                            <div class="cardin-label grid-1x-1y">
+                                <input type=text class="null-border xy-center" id=incvv maxlength="3" placeholder="CVV">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="footer" class="bg-d2">
+            <div class=page-block>
+                <div class=page-lists>
+                    <div class=page-list>
+                        <a class="page font-gray" href="car-select.html">
+                            Аренда
+                        </a>
+                        <a class="page font-gray" href="cards.html">
+                            Банковские карты
+                        </a>
+                        <a class="page font-gray" href="history.html">
+                            История бронирования
+                        </a>
+                    </div>
+                    <div class=page-list>
+                        <a class="page font-gray" href="branches.html">
+                            Филиалы
+                        </a>
+                        <a class="page font-gray" href=about.html>
+                            О Нас
+                        </a>
+                        <a class="page font-gray" href=profile.html>
+                            Личный кабинет
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="phone-number font-gray" align=center>
+                Телефон: 8 (800) 555-35-3
+            </div>
+        </div>
+        <script src=cards.js></script>
+    </body>
+</html>
