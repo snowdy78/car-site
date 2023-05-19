@@ -7,6 +7,7 @@
         <link href="style.css" rel="stylesheet">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="profile.js"></script>
      </head>
     <body>
         <div id="no-log-header" class="bg-d2">
@@ -21,23 +22,16 @@
             <div class="element font-l br-d3" onclick="window.location.href='branches.html';">
                 О Нас
             </div>
-            <div class="element font-l br-d3" onclick="window.location.href = 'login.html';">
-                Вход
-            </div>
-            <div class="element font-l br-d3" onclick="window.location.href = 'register.html';">
-                Регистрация
-            </div>
-            
         </div>
 
         <div id="content">
-            <div class="full-bg-no-h">
-                <div class="central-holder">
+            <div class="full-bg-no-h bg-l">
+                <div class="central-holder bg-d">
                     <div class="profile-img">
 
                     </div>
                     <div>
-                        <div class="profile-name-font">My Name</div>
+                        <div class="profile-name-font font-l">My Name</div>
                     </div>
                     <div>
                         
@@ -81,5 +75,10 @@
                 Телефон: 8 (800) 555-35-3
             </div>
         </div>
+        <script src="load_header_profile.js"></script>
+        <script>
+            onPageEnter();
+            load_header_profile();
+        </script>
     </body>
 </html>

@@ -1,8 +1,64 @@
-let i = {
-    was_logged: false,
-};
-sessionStorage.setItem("name", JSON.stringify(i));
+function load_header_profile()
+{ 
+    const i = {
+        "was_logged": false,
+    };
+    let hs = sessionStorage.getItem('header-states');
+    if (hs == null)
+    { 
+        sessionStorage.setItem("header-states", JSON.stringify(i));
+    }
 
-let header = document.getElementById('header');
-header.getElementsByClassName('element');
+    let was_logged = JSON.parse(sessionStorage.getItem("header-states"))["was_logged"];
 
+
+    let logged_header = document.getElementById('logged-header');
+    let unlogged_header = document.getElementById('no-log-header');
+
+    if (was_logged)
+    {
+        
+        let prof_case = document.createElement('div');
+        prof_case.id = "prof-case";
+        prof_case.className = 'element font-l br-d3';
+        prof_case.addEventListener('click', () => {
+            window.location.href = 'profile.html';
+        });
+        if (unlogged_header != null) 
+        {
+            unlogged_header.id = "logged-header";   
+            unlogged_header.appendChild(prof_case);
+        }
+        else 
+        {
+            logged_header.appendChild(prof_case);
+        }
+    }
+    else
+    {
+        
+        let log_case = document.createElement('div');
+        log_case.className = 'element font-l br-d3';
+        log_case.addEventListener('click', () => {
+            window.location.href = 'login.html';
+        });
+        log_case.textContent = "Вход";
+        let reg_case = document.createElement('div');
+        reg_case.className = 'element font-l br-d3';
+        reg_case.addEventListener('click', () => {
+            window.location.href = 'register.html';
+        });
+        reg_case.textContent = "Регистрация";
+        if (logged_header != null) 
+        {
+            logged_header.id = 'no-log-header';
+            logged_header.appendChild(log_case);
+            logged_header.appendChild(reg_case);    
+        }
+        else {
+            unlogged_header.appendChild(log_case);
+            unlogged_header.appendChild(reg_case);
+        }
+    }
+
+}
