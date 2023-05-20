@@ -64,17 +64,14 @@ function load_header_profile()
             unlogged_header.appendChild(reg_case);
         }
     }
-
-}
-let nav = document.getElementById('nav-menu');
-nav.addEventListener('click', () => {
+    let nav = document.getElementById('nav-menu');
+    nav.addEventListener('click', () => {
     let viewmenu = document.getElementById('vm');
     if (viewmenu.className === "no-display")
     {
         viewmenu.className = "display";
         let grid = document.getElementById('vm-grid');
         let was_logged = JSON.parse( sessionStorage.getItem('header-states'))["was_logged"];
-        console.log(was_logged);
         if (was_logged)
         {
             grid.className = 'grid-lk';
@@ -100,7 +97,5 @@ nav.addEventListener('click', () => {
         viewmenu.className = 'no-display';
     }; 
 });
-//addEventListener("resize", () => {
-    //let viewmenu = document.getElementById('vm');
-    //viewmenu.style.display = '';
-//});
+}
+

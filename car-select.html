@@ -10,38 +10,9 @@
     </head>
     <body>
         <div id="no-log-header" class="no-log-header-template-columns bg-d2">
-            <div class="logo-element font-r fam-kaus" onclick="window.location.href='index.html';">
-            </div>
-            <div class="element font-l br-d3" onclick="window.location.href='car-select.html';">
-                Аренда
-            </div>
-            <div class="element font-l br-d3" onclick="window.location.href='cards.html';">
-                Оплата
-            </div>
-            <div class="element font-l br-d3" onclick="window.location.href='branches.html';">
-                О Нас
-            </div>
-            <div id=nav-menu>
-
-            </div>
-            <div id=vm class=no-display>
-                <div id=vm-grid>
-                    <div class=elem onclick="window.location.href='login.html'">
-                        Вход
-                    </div>
-                    <div class=elem onclick="window.location.href='register.html'">
-                        Регистрация
-                    </div>
-                    <div class=elem onclick="window.location.href='car-select.html'">
-                        Аренда
-                    </div>
-                    
-                    <div class=elem onclick="window.location.href='cards.html'">
-                        Оплата
-                    </div>
-                </div>
-            </div>
+            
         </div>
+
         <div id="content" class="bg-l">
             
             <div class="cs-t">
@@ -55,91 +26,7 @@
                 </div>
                 <div class=cs-tr>
                     <div class="cs-td">
-                        <div class=car-selection-field>
-                            <div class=car-selection-row>
-                                <div class="car-cell">
-                                    <div class="p-grid">
-                                        <div class=car-img style="background-image: url(img/c1.png);">
-
-                                        </div>
-                                        <div class="car-descr-block">
-                                            <div class=car-name>
-                                                Car Name
-                                            </div>
-                                            <input type="button" class="button" value="Арендовать">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=car-cell>
-                                    <div class="p-grid">
-                                        <div class=car-img style="background-image: url(img/c2.png);">
-
-                                        </div>
-                                        <div class="car-descr-block">
-                                            <div class=car-name>
-                                                Car Name
-                                            </div>
-                                            <input type="button" class="button" value="Арендовать">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class=car-selection-row>
-                                <div class=car-cell>
-                                    <div class="p-grid">
-                                        <div class=car-img style="background-image: url(img/c3.png);">
-                                            
-                                        </div>
-                                        <div class="car-descr-block">
-                                            <div class=car-name>
-                                                Car Name
-                                            </div>
-                                            <input type="button" class="button" value="Арендовать">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=car-cell>
-                                    <div class="p-grid">
-                                        <div class=car-img style="background-image: url(img/c4.png);">
-
-                                        </div>
-                                        <div class="car-descr-block">
-                                            <div class=car-name>
-                                                Car Name
-                                            </div>
-                                            <input type="button" class="button" value="Арендовать">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class=car-selection-row>
-                                <div class=car-cell>
-                                    <div class="p-grid">
-                                        <div class=car-img style="background-image: url(img/c5.png);">
-
-                                        </div>
-                                        <div class="car-descr-block">
-                                            <div class=car-name>
-                                                Car Name
-                                            </div>
-                                            <input type="button" class="button" value="Арендовать">
-                                        </div> 
-                                    </div>
-                                </div>
-                                <div class=car-cell>
-                                    <div class="p-grid">
-                                        <div class=car-img style="background-image: url(img/c6.png);">
-
-                                        </div>
-                                        <div class="car-descr-block">
-                                            <div class=car-name>
-                                                Car Name
-                                            </div>
-                                            <input type="button" class="button font-l" value="Арендовать">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class=car-select>
                         </div>
                     </div>
                 </div>
@@ -147,40 +34,16 @@
             </div>
         </div>
         <div id="footer" class="bg-d2">
-            <div class=page-block>
-                <div class=page-lists>
-                    <div class=page-list>
-                        <a class="page font-gray" href="car-select.html">
-                            Аренда
-                        </a>
-                        <a class="page font-gray" href="cards.html">
-                            Банковские карты
-                        </a>
-                        <a class="page font-gray" href="history.html">
-                            История бронирования
-                        </a>
-                    </div>
-                    <div class=page-list>
-                        <a class="page font-gray" href="branches.html">
-                            Филиалы
-                        </a>
-                        <a class="page font-gray" href=about.html>
-                            О Нас
-                        </a>
-                        <a class="page font-gray" href=profile.html>
-                            Личный кабинет
-                        </a>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="phone-number font-gray" align=center>
-                Телефон: 8 (800) 555-35-3
-            </div>
+            
         </div>
         <script src="load_header_profile.js"></script>
+        <script src="cars.js"></script>
+        <script src="main.js"></script>
         <script>
+            generateHeader();
             load_header_profile();
+            generateCars();
+            generateFooter();
         </script>
     </body>
 </html>
