@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div class="cell">
-                        <input type="text" class="text-input">
+                        <input type="text" id=reg-last-name class="text-input">
                     </div>
                     <div class="text-cell">
                         <div class="text">
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="cell">
-                        <input type="text" class="text-input">
+                        <input type="text" id="reg-first-name" class="text-input">
                     </div>
                     <div class="text-cell">
                         <div class="text">
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="cell">
-                        <input type="text" class="text-input">
+                        <input type="text" id=reg-surname class="text-input">
                     </div>
                     <div class="text-cell">
                         <div class="text">
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="cell">
-                        <input type="text" class="text-input">
+                        <input type="text"  id=reg-pasport-id class="text-input">
                     </div>
                     <div class="text-cell">
                         <div class="text">
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div class="cell">
-                        <input type="text" class="text-input">
+                        <input type="text" id=reg-phonenumber class="text-input">
                     </div>
                     <div class="text-cell">
                         <div class="text">
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <div class="cell">
-                        <input type="date" class="text-input">
+                        <input type="date" id=reg-birthday class="text-input">
                     </div>
                     <div class="text-cell">
                         <div class="text">
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <div class="cell">
-                        <input type="password" class="text-input">
+                        <input type="password" id=reg-inpassword class="text-input">
                     </div>
                     <div class="text-cell">
                         <div class="text">
@@ -78,10 +78,15 @@
                         </div>
                     </div>
                     <div class="cell">
-                        <input type="password" class="text-input">
+                        <input type="password" id=reg-repeatpassword class="text-input">
                     </div>
                 </div>
-                <input type="button" class="button w100-box null-border h100-box bg-b font-l x-center" id="cac-button" value="Зарегистрироваться">
+                <div>
+                    <div id=err-state style="display:none">
+                       * Не все поля заполнены
+                    </div>
+                    <input type="button" class="button w100-box null-border h60-box bg-b font-l x-center" id="cac-button" value="Зарегистрироваться">
+                </div>
                 
             </div>
         </div>

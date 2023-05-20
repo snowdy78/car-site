@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            index drive
+        </title>
+        <link href="style.css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="profile.js"></script>
+     </head>
+    <body>
+        <div id="no-log-header" class="header-template-columns bg-d2">
+            <div class="logo-element font-r fam-kaus" onclick="window.location.href='index.html';">
+            </div>
+            <div class="element font-l br-d3" onclick="window.location.href='car-select.html';">
+                Аренда
+            </div>
+            <div class="element font-l br-d3" onclick="window.location.href='cards.html';">
+                Оплата
+            </div>
+            <div class="element font-l br-d3" onclick="window.location.href='branches.html';">
+                О Нас
+            </div>
+            <div id=nav-menu>
+
+            </div>
+            <div id=vm class=no-display>
+                <div id=vm-grid>
+                    <div class=elem onclick="window.location.href='login.html'">
+                        Вход
+                    </div>
+                    <div class=elem onclick="window.location.href='register.html'">
+                        Регистрация
+                    </div>
+                    <div class=elem onclick="window.location.href='car-select.html'">
+                        Аренда
+                    </div>
+                    
+                    <div class=elem onclick="window.location.href='cards.html'">
+                        Оплата
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="content">
+            <div class="full-bg-no-h bg-l">
+                <div class="front-bg bg-d w100-box h60-box">
+                
+                    <div id="map_container" class="w100-box h100-box">
+
+                        <script id="ymap_lazy" async="" data-src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A76f8fb9bb50f05db67012f61108df177cef4c517c57324b88b81ff086473d035&amp;data-aload&amp;lang=ru_RU&amp;scroll=true"></script>
+                        
+                    </div>
+                    <script>
+                        let map_container = document.getElementById('map_container');
+                        let options_map = {
+                            once: true,//запуск один раз, и удаление наблюдателя сразу
+                            passive: true,
+                            capture: true
+                        };
+                        map_container.addEventListener('click', start_lazy_map, options_map);
+                        map_container.addEventListener('mouseover', start_lazy_map, options_map);
+                        map_container.addEventListener('touchstart', start_lazy_map, options_map);
+                        map_container.addEventListener('touchmove', start_lazy_map, options_map);
+                    
+                        let map_loaded = false;
+                        function start_lazy_map() {
+                            if (!map_loaded) {
+                                let map_block = document.getElementById('ymap_lazy');
+                                map_loaded = true;
+                                map_block.setAttribute('src', map_block.getAttribute('data-src'));
+                                map_block.removeAttribute('data_src');
+                                console.log('YMAP LOADED');
+                            }
+                        }
+                    </script>
+                </div>
+                <div class="front-bg bg-d w100-box h40-box">
+                
+                
+                </div>
+            </div>
+        </div>
+        
+        <div id="footer" class="bg-d2">
+            <div class=page-block>
+                <div class=page-lists>
+                    <div class=page-list>
+                        <a class="page font-gray" href="car-select.html">
+                            Аренда
+                        </a>
+                        <a class="page font-gray" href="cards.html">
+                            Банковские карты
+                        </a>
+                        <a class="page font-gray" href="history.html">
+                            История бронирования
+                        </a>
+                    </div>
+                    <div class=page-list>
+                        <a class="page font-gray" href="branches.html">
+                            Филиалы
+                        </a>
+                        <a class="page font-gray" href=about.html>
+                            О Нас
+                        </a>
+                        <a class="page font-gray" href=profile.html>
+                            Личный кабинет
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="phone-number font-gray" align=center>
+                Телефон: 8 (800) 555-35-3
+            </div>
+        </div>
+        <script src="load_header_profile.js"></script>
+        <script>
+            onPageEnter();
+            load_header_profile();
+        </script>
+    </body>
+</html>

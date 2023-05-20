@@ -42,7 +42,6 @@
     position: fixed;
     width:100%;
 
-    grid-template-columns: 16.5% 16.5% 16.5% 16.5% 16.5% 16.5%;
     grid-template-rows: 4em;
 }
 #logged-header {
@@ -50,8 +49,15 @@
     position: fixed;
     width:100%;
 
-    grid-template-columns: 20% 20% 20% 20% 20%;
     grid-template-rows: 4em;
+}
+.no-log-header-template-columns {
+    grid-template-columns: 16.5% 16.5% 16.5% 16.5% 16.5% 16.5%;
+
+}
+.log-header-template-columns {
+    grid-template-columns: 20% 20% 20% 20% 20%;
+
 }
 #prof-case::before {
     content: "Личный кабинет";
@@ -92,22 +98,61 @@
     content: 'Index Drive';
 }
 
-@media screen and (max-width:1252px) {
-    .element {
-        font-size:1.5em;
-    }
-    #prof-case::before {
-        content: 'Лич. каб.'
-    }
+.display {
+    display: inherit;
 }
-@media screen and (max-width:892px) {
-    .element {
-        display:none;
-    }
-    .logo-element::before {
-        content: 'ID';
-    }
+.no-display {
+    display:none;
 }
+#vm {
+    position:fixed;
+    justify-self: right;
+    font-family: 'Comfortaa';
+    width: 300px;
+    max-width: 100%;
+    margin-top: 4em;
+    background-color: var(--header-bg-color);
+    height: calc(100vh - 4em);
+}
+#vm-grid {
+    display:grid;
+    height:100%;
+}
+#vm>.grid {
+    grid-template-columns: 100%;
+    grid-template-rows: max-content max-content max-content max-content max-content;
+}
+#vm>.grid-lk {
+    grid-template-columns: 100%;
+    grid-template-rows: max-content max-content max-content max-content max-content;
+}
+#vm-grid>.elem {
+    width:100%;
+    height:fit-content;
+    padding-top: 5%;
+    padding-left:10%;
+    padding-bottom: 5%;
+    color:white;
+    font-size: 4vh;
+    text-align: left;
+    border-bottom: 1px solid var(--header-border-color);
+    cursor:pointer;
+}
+#vm-grid>.elem:first-child {
+    border-top: 1px solid var(--header-border-color);
+}
+#nav-menu {
+    display: none;
+    width:20%;
+    justify-self: right;
+    height: 90%;
+    background: url(img/menu.png) no-repeat;
+    align-self: center;
+    background-position: center;
+    background-size:contain;
+    cursor:pointer;
+}
+
 
 
 
@@ -169,7 +214,6 @@
 .card-type-label {
     height:100%;
     margin-left:5%;
-    font-size: 3em;
 }
 .card-type-label .text {
     font-size: 3rem;
@@ -195,12 +239,12 @@
     margin-right:10%;
     color: greenyellow;
     text-shadow: 1px 3px 0px rgb(6, 65, 6);
-    font-size:1.3em;
+    font-size:1.3rem;
 }
 
 .cardin-label {
     width:100%;
-    height:2em;
+    height:100%;
 }
 .grid-col-span-3 {
     grid-column: span 3;
@@ -213,7 +257,7 @@
 .cardin-label>input {
     width:91%;
     box-shadow: 2px 3px 0px black;
-    font-size: 2em;
+    font-size: 100%;
 }
 .null-border {
     border:0;
@@ -358,7 +402,7 @@
 #content .p-grid {
     display:grid;
     margin:10px;
-    border-radius: 2vh;
+    border-radius: 20px;
     background-color: var(--bg-d);
     grid-template-columns: 100%;
     grid-template-rows: 400px 100px;
@@ -561,7 +605,7 @@
     text-align: center;
 }
 .singup-rows-template {
-    grid-template-rows: 1.5em 40em 2em;
+    grid-template-rows: 1.5em 40em 4em;
 }
 
 .singin-rows-template {
@@ -631,10 +675,10 @@
     font-size: 0.8em;
 }
 #cac-button {
-    width:fit-content;
     min-width: 100%;
-    padding-top:1%;
-    font-size:1.5em;
+    padding-top:2%;
+    padding-bottom:2%;
+    font-size:100%;
 }
 
 .arrow-left {
@@ -663,6 +707,35 @@
 #reg-block input[type=password]:focus {
     outline: none; 
 }
+#reg-inpassword {
+
+}
+#reg-repeatpassord {
+
+}
+#reg-first-name {
+
+}
+#reg-last-name {
+
+}
+#reg-surname {
+
+}
+#reg-phonenumber {
+
+}
+#reg-pasport-id {
+
+}
+#reg-birthday {
+
+}
+#err-state{
+    font-weight: bold;
+    color:#C02020;
+}
+
 .font-d {
     color: #27262B;
     text-decoration-color: #27262B;
@@ -735,6 +808,7 @@
     grid-template-columns: 100%;
     grid-template-rows: 100%;
 }
+
 .grid-3x-3y {
     display:grid;
     width:90%;
@@ -778,6 +852,12 @@
 .h20-box {
     height: 20%;
 }   
+.height0 {
+    height:0;
+}
+.width0 {
+    width:0;
+}
 .wrel {
     width:fit-content;
 } 
@@ -826,4 +906,48 @@
     justify-content: center;
     align-self: center;
     align-content: center;
+}
+@media screen and (max-width:1270px) {
+    .element {
+        font-size:1.5em;
+    }
+    .logo-element {
+        font-size: 1.7em;
+    }
+    #prof-case::before {
+        content: 'Лич. каб.'
+    }
+}
+@media screen and (max-width:892px) {
+    .element {
+        display:none;
+    }
+    .logo-element {
+        font-size:2em;
+    }
+    .logo-element::before {
+        content: 'ID';
+    }
+    .log-header-template-columns {
+        grid-template-columns: 20% 80%;
+    }
+    .no-log-header-template-columns {
+        grid-template-columns: 20% 80%;
+    }
+    .media-element {
+        display: flex;
+    }
+    #nav-menu {
+        display:flex;
+    }
+    .card-type-label>.text{
+        font-size:2em;
+    }
+    
+}
+@media screen and (min-width:892px) {
+    #vm {
+        display:none;
+    }
+    
 }
