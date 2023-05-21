@@ -5,4 +5,6 @@ function onPageEnter()
     {
         window.location.href = 'login.html';
     }
+    let sel_cars = sessionStorage.getItem('selected-cars');
+    console.log(sel_cars);
 }

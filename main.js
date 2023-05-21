@@ -19,9 +19,6 @@ function generateFooter()
                 <a class="page font-gray" href="branches.html">
                     Филиалы
                 </a>
-                <a class="page font-gray" href=about.html>
-                    О Нас
-                </a>
                 <a class="page font-gray" href=profile.html>
                     Личный кабинет
                 </a>

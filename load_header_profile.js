@@ -7,9 +7,10 @@ function load_header_profile()
     if (hs == null)
     { 
         sessionStorage.setItem("header-states", JSON.stringify(i));
+        hs = sessionStorage.getItem('header-states');
     }
 
-    let was_logged = JSON.parse(sessionStorage.getItem("header-states"))["was_logged"];
+    let was_logged = JSON.parse(hs)["was_logged"];
 
 
     let logged_header = document.getElementById('logged-header');
