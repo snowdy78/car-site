@@ -81,14 +81,34 @@ function loadBankCards()
     let cards = JSON.parse(sessionStorage.getItem("cards"));
     if (cards === null)
     {
-        cards_block.
+        cards_block.className = '';
         cards_block.innerHTML = `
             вы ничего не бронировали. 
             <a href="cards.html" class="font-l">Добавить?</a>
         `;
     }
-    else {
-        // load...
+    else 
+    {
+        console.log(Object.keys(cards));
+        for(let card_info of Object.keys(cards))
+        {
+            let card = document.createElement('div');
+            card.className = 'card';
+            let card_number = document.createElement('div');
+            card_number.className = 'card-number';
+            card_number.textContent = `Номер карты: ${cards[card_info]["card-number"]}`;
+            let card_date = document.createElement('div');
+            card_date.className = 'card-end-date';
+            card_date.textContent = `Срок действия карты: ${cards[card_info]['month']}/${cards[card_info]['year']}`;
+            let card_cvv = document.createElement('div');
+            card_cvv.className = 'card-cvv';
+            card_cvv.textContent = `CVV: ${cards[card_info]["cvv"]}`; 
+            card.appendChild(card_number);
+            card.appendChild(card_date);
+            card.appendChild(card_cvv);
+            cards_block.appendChild(card);
+        }
+
     }
     content.appendChild(cards_block)
 } 

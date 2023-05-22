@@ -333,7 +333,7 @@
 .card-label {
     width: 60%;
     height:80%;
-    background:linear-gradient(0deg, rgb(0 96 79) 0, rgb(84 255 247) 100%);
+    background:linear-gradient(0deg, rgb(0 96 79) 0, rgb(82, 168, 56) 100%);
     border-radius:20px;
     box-shadow: 2px 3px 0px black;
     display:grid;
@@ -786,10 +786,11 @@
 .profile-body {
     display:grid;
     width:80%;
-    height:100%;
+    height:fit-content;
+    min-height: 100%;
     justify-self: center;
     grid-template-columns: 100%;
-    grid-template-rows: calc(var(--s) + 10%) 50px calc(90% - 50px - var(--s));
+    grid-template-rows: calc(var(--s) + 10%) 50px max-content;
 }
 .profile-header {
     display:grid;
@@ -807,26 +808,47 @@
 }
 #profile-content {
     display:grid;
-    overflow: auto;
-    grid-column: span 2;
     width:100%;
     height:fit-content;
     color: var(--font-color-l);
     justify-self: center;
-    grid-template-columns: 30% 70%;
-    grid-template-rows: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: max-content;
+    font-size:20px;
+    margin-top:20px;
+    text-align:center
 }
 #profile-content .card {
-    display: inline-block;
-    width: 300px;
-    height: 100px;
-    border-radius: 20px;
-    background:linear-gradient(0deg, rgb(0 96 79) 0, rgb(84 255 247) 100%);
-    
-}
-#profile-content .card>.text {
+    display: inline-grid;
 
+    width: 300px;
+    height: 200px;
+    border-radius: 20px;
+    background:linear-gradient(0deg, rgb(0 96 79) 0, rgb(82, 168, 56) 100%);
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    font-size:15px;
+    margin-left:5%;
+    margin-top:5%;
+    box-shadow: 5px 3px 0px black;
+    text-shadow: 1px 1px 0px black;
 }
+#profile-content .card-number {
+    justify-self: start;
+    align-self: center;
+    margin-left:10%;
+}
+#profile-content .card-end-date {
+    justify-self: start;
+    align-self: center;
+    margin-left:10%;
+}
+#profile-content .card-cvv {
+}
+#profile-content .car {
+    display: inline-block;
+}
+
 .prof-tab {
     display:flex;
     width:100%;

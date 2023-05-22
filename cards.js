@@ -47,7 +47,7 @@ function onCardNumberInput()
         type_block.appendChild(x);
     }
     let correction = document.getElementsByClassName('card-correct-label')[0];
-    if (isCorrectCardNumber()) 
+    if (!isCorrectCardNumber()) 
     {
         correction.style.color = '#ffb100';
         correction.textContent = 'Неизвестный номер карты';
@@ -61,7 +61,7 @@ function onCardNumberInput()
 function updateCardData()
 {
     let correction = document.getElementsByClassName('card-correct-label')[0];
-    if (isCorrectDate())
+    if (!isCorrectDate())
     {
         correction.style.color = '#ffb100';
         correction.textContent = 'Срок действия карты истек';
@@ -85,7 +85,7 @@ function onCardCVVInput()
 {
     this.value = filt(this.value);
     let correction = document.getElementsByClassName('card-correct-label')[0];
-    if (this.value.length < 3) 
+    if (!cvvIsCorrect()) 
     {
         correction.style.color = '#ffb100';
         correction.textContent = 'Неверный CVV';
@@ -99,7 +99,7 @@ function onCardCVVInput()
 function cvvIsCorrect() 
 {
     let incvv = document.getElementById('incvv');
-    return incvv.value.length >= 3;
+    return incvv.value.length == 3;
 }
 function isCorrectDate() 
 {
@@ -112,14 +112,14 @@ function isCorrectDate()
     let inyear = +year_block.value;
     if (inmon < mon && year === inyear || inyear < year)
     {
-        return true;
+        return false;
     }
-    return false;
+    return true;
 }
 function monthIsCorrect() 
 {
     let month = document.getElementById('inmonth');
-    return (+month.value) <= 12; 
+    return (+month.value) <= 12 && isCorrectDate(); 
 }
 function yearIsCorrect() 
 {
@@ -128,7 +128,7 @@ function yearIsCorrect()
 function isCorrectCardNumber() 
 {
     let incn = document.getElementById('incn');
-    return incn.value.length < 19;
+    return incn.value.length === 19;
 }
 function onCardAdd() 
 {
@@ -143,16 +143,19 @@ function onCardAdd()
     if (isCorrectCardNumber() && monthIsCorrect() && yearIsCorrect() && cvvIsCorrect())
     {
         cards[id] = {
-            'card-number': +document.getElementById('incn').value,
-            'month': +document.getElementById('inmonth').value,
-            'year': +document.getElementById('inyear').value,
-            'cvv': +document.getElementById('incvv').value
+            'card-number': document.getElementById('incn').value,
+            'month': document.getElementById('inmonth').value,
+            'year': document.getElementById('inyear').value,
+            'cvv': document.getElementById('incvv').value
         };
         sessionStorage.setItem('cards', JSON.stringify(cards));
     }  
+    else 
+        console.log("card is not correct", isCorrectCardNumber(), monthIsCorrect(), yearIsCorrect(), cvvIsCorrect())
 
     
 }
+document.querySelector("#add-btn").onclick = onCardAdd;
 document.querySelector('#incn').oninput = onCardNumberInput;
 document.querySelector('#inmonth').oninput = onCardMonthInput;
 document.querySelector('#inyear').oninput = onCardYearInput;
