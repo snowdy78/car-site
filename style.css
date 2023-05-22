@@ -66,18 +66,78 @@
 #car-details {
     display:grid;
     position:fixed;
-    grid-template-columns: 60% 40%;
+    width: 80vw;
+    height: 80vh;
+    left: 50%;
+    top:50%;
+    margin-left: -40vw;
+    margin-top: -40vh;
+    font-size:300%;
+    border-radius:30px;
+    grid-template-columns: 70% 30%;
     grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    background-color: #282732;
 }
-#car-details .car-img {
-    grid-row: span 10;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    border-radius: 30px;
-}
-#car-details .text {
+
+#car-details .X-block {
+    width:5vmin;
+    height:5vmin;
+    margin-right: 5%;
+    align-self:center;
+    border-radius: 100%;
+    background-color: var(--bg-dr);
+    text-align: center;
 
 }
+#car-details .X-block:hover {
+    background-color: #d44747;
+}
+#car-details .X-block>.X {
+    transform:rotate(45deg);
+}
+#car-details .X::before {
+    content: '+';
+}
+#car-details .car-img {
+    grid-row: span 9;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top:5%;
+    margin-bottom: 5%;
+}
+#car-details input[type=number] {
+    width:10%;
+    height:80%;
+    background-color:transparent;
+    border:none;
+    font-size: 1em;
+    border-bottom: 1px solid white;
+    color: var(--font-color-l); 
+}
+#car-details input[type=number]:focus { 
+    outline:none;
+} 
+#car-details h1 {
+    font-size: 30px;
+    font-weight: lighter;
+    text-align: left;
+    justify-content: start;
+    align-self:center;
+    margin-left:5%;
+    margin-top:5%;
+    color: var(--font-color-l);
+}
+#car-details .text {
+    font-size: 20px;
+    color: var(--font-color-l);
+    justify-self: start;
+    align-self: center;
+}
+
 
 .element {
     display:flex;
@@ -181,7 +241,46 @@
 }
 
 
+#barn {
+    background-image:url(img/barnaul.png);
+}
+#novosibirsk {
+    background-image:url(img/novosibirsk.png)
+}
+.filials {
+    display:grid;
+    width:60%;
+    height: fit-content;
+    justify-self: center;
+    align-self: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    grid-template-columns: 100%;
+    grid-template-columns: 100%;
+    background-color: var(--bg-d);
+}
+.filial {
 
+}
+.filial-img {
+    display: inline-block;
+    width: 720px;
+    height: 520px;
+    border: 8px;
+    border-style:outset;
+    border-color: red;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    cursor:pointer;
+}
+.filial-descr {
+    display:inline-block;
+    width:720px;
+    font-size: 30px;
+    color: var(--font-color-l);
+    height:200px;
+}
 
 #content { 
     display:grid;
@@ -1070,6 +1169,9 @@
 .flex {
     display:flex;
 }
+.bg-height {
+    height:93vh;
+}
 @media screen and (max-width:1270px) {
     .element {
         font-size:1.5em;
@@ -1080,8 +1182,30 @@
     #prof-case::before {
         content: 'Лич. каб.'
     }
+    #car-details {
+        overflow:auto;
+        width: 100vw;
+        height: 100vh;
+        left: 50%;
+        top: 50%;
+        margin-left: -50vw;
+        margin-top: -50vh;
+        border-radius:0;
+        grid-template-columns: 50vw 50vw;
+        grid-template-rows: 50px 50% 50px 50px 50px 50px 50px 50px 50px 50px;
+        background-color: #282732;
+    }
+    #car-details .car-img {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+    #car-details .text {
+        grid-column: span 2;
+        width:90%;
+        padding-left:10%;
+    }
 }
-@media screen and (max-width:892px) {
+@media screen and (max-width:892px) { /*mobile version*/
     .element {
         display:none;
     }
@@ -1106,6 +1230,22 @@
     .front-bg {
         width:100%;
     }
+    .filials {
+        width:90%;
+    }
+    
+
+}
+@media screen and (max-width:450px) {
+    #content .car-descr-block>.car-name {
+        font-size:1.2rem;
+    }
+    #content .car-descr-block>.price {
+        font-size:1.2rem;
+    }
+    .button {
+        font-size: 0.9rem;
+    } 
 }
 @media screen and (min-width:892px) {
     #vm {
