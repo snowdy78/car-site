@@ -40,6 +40,12 @@ registrasion_button.addEventListener('click', () => {
     {
         let header_states = JSON.parse(sessionStorage.getItem('header-states'));
         header_states["was_logged"] = true;
+        let data = document.getElementsByClassName('text-input');
+        let data_list = [];
+        for (let i of data) {
+            data_list.push(i.id, i.value);
+        }  
+        sessionStorage.setItem('log-states', JSON.stringify(data_list));
         sessionStorage.setItem('header-states', JSON.stringify(header_states));
     }
     else {

@@ -102,7 +102,7 @@ let cars_json = {
         "name": "Nissan X-Trail, 2022",
         "number": "к032от",
         "price": 18900,
-        "filial": "Московский",
+        "filial": "Питербургский",
         "img": "img/c15.png"
     }
 };
@@ -127,6 +127,20 @@ function hideCarDetails() {
     if (before_car_d != null)
         before_car_d.remove();
 }
+function getCarsByFilialName(filial_name) 
+{
+    let cars = {};
+    let len = Object.keys(cars_json).length;
+    for (let i = 0; i < len; i++)
+    {
+        if (cars_json[i]["filial"] === filial_name)
+        {
+            cars[i] = cars_json[i];
+        }
+    }
+    return cars;
+
+}
 function showCarDetails(car_id) 
 {
     hideCarDetails();
@@ -146,7 +160,7 @@ function showCarDetails(car_id)
         <h1>
             ${cars_json[car_id]["name"]}
         </h1>
-        <div class="X-block x-right y-top grid-1x-1y" onclick="hideCarDetails()">
+        <div class="X-block x-right y-top grid-1x-1y tmar-5 rmar-5" onclick="hideCarDetails()">
             <div class="X xy-center"></div>
         </div>
         <div class="car-img" style="background-image:url(${car["img"]})">
@@ -179,7 +193,7 @@ function showCarDetails(car_id)
         <div class="text w100-box flex x-center">
             <input type="button" class="button" onclick="rend(${car_id})" value="Аренда">
         </div>
-    `
+    `;
     content.appendChild(car_details);
     let f = () => {
         
@@ -200,9 +214,49 @@ function showCarDetails(car_id)
     dc.addEventListener('keyup', f);
     dc.addEventListener('mouseup', f);
 }
-function showCars(count) 
+function showCars(ids) 
 {
-
+    let elem = document.getElementById('car-view');
+    if (elem !== null)
+    {
+        elem.remove();
+    }
+    
+    let content = document.getElementById('content');
+    let cars_block = document.createElement('div');
+    cars_block.innerHTML = `
+        <div class="first-field">
+            <div class="X-block" onclick="document.getElementById('car-view').remove()">
+                <div class="X xy-center"></div>
+            </div>
+        </div>
+    `;
+    cars_block.id = 'car-view';
+    for (let start of ids)
+    {
+        let car = document.createElement('div');
+        car.className = 'car';
+        let car_price = document.createElement('div');
+        let btn = document.createElement('input');
+        btn.type = 'button';
+        btn.onclick = () => {rend(start);};
+        btn.value = "Арендовать";
+        btn.className = "button";
+        let car_name = document.createElement('div');
+        car_name.className = 'name';
+        car_name.textContent = cars_json[start]['name'];
+        car_price.className = 'price';
+        car_price.textContent = `${cars_json[start]["price"]}р./сутки`
+        let car_img = document.createElement('div');
+        car_img.className = 'car-image';
+        car_img.style.backgroundImage = `url(${cars_json[start]["img"]})`;
+        car.appendChild(car_img);
+        car.appendChild(car_name);
+        car.appendChild(car_price);
+        car.appendChild(btn);
+        cars_block.appendChild(car);
+    }
+    content.appendChild(cars_block);
 }
 function generateCars() 
 {

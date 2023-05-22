@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            index drive
+        </title>
+        <link href="style.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="no-log-header" class="no-log-header-template-columns bg-d2">
+            
+        </div>
+
+        <div id="content" class="bg-l">
+            
+            <div class="cs-t">
+                <div class="cs-tr">
+                    <div class="cs-td">
+                        <div class="text-header font-d">
+                            Аренда Автомобиля
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class=cs-tr>
+                    <div class="cs-td">
+                        <div class=car-select>
+                        </div>
+                    </div>
+                </div>
+                    
+            </div>
+        </div>
+        <div id="footer" class="bg-d2">
+            
+        </div>
+        <script src="load_header_profile.js"></script>
+        <script src="cars.js"></script>
+        <script src="main.js"></script>
+        <script>
+            generateHeader();
+            load_header_profile();
+            generateCars();
+            generateFooter();
+        </script>
+    </body>
+</html>

@@ -25,32 +25,53 @@
                         </div>
                         <div class="flex xy-center tmar-5">
                             <div class="filial-descr">
-                                г. Новосибирск, В. Высоцкого, 5 
+                                г. Барнаул, пр. Калинина, 13 <br>
+                                Филиал: Барнаульский
                             </div>
                         </div>
                         <div class="flex xy-center tmar-5">
                             <div id="novosibirsk" class="filial-img">
+                                
+                            </div>
+                        </div>
+                        <div class="flex xy-center tmar-5">
+                            <div class="filial-descr">
+                                г. Новосибирск В. Высоцкого, 5 <br>
+                                Филиал: Новосибирский 
+                            </div>
+                        </div>
+                        <div class="flex xy-center tmar-5">
+                            <div id="moscow" class="filial-img">
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="flex xy-center tmar-5">
+                            <div class="filial-descr">
+                                г. Москва, Кастанаевская улица, 4 <br>
+                                Филиал: Московский 
+                            </div>
+                        </div>
+                        <div class="flex xy-center tmar-5">
+                            <div id="chelab" class="filial-img">
 
                             </div>
                         </div>
                         <div class="flex xy-center tmar-5">
                             <div class="filial-descr">
-                                В. Высоцкого, 5 
+                                г. Челябинск, ​Копейское шоссе, 52а/1 <br>
+                                Филиал: Челябинский
                             </div>
                         </div>
                         <div class="flex xy-center tmar-5">
-                            <div class="filial-img">
-
+                            <div id="pither" class="filial-img">
+                                
                             </div>
                         </div>
                         <div class="flex xy-center tmar-5">
-                            <div class="filial-img">
-
-                            </div>
-                        </div>
-                        <div class="flex xy-center tmar-5">
-                            <div class="filial-img">
-
+                            <div class="filial-descr">
+                                г. Сант-Питербург, Сантьяго-де-Куба, 3 к3 <br>
+                                Филиал: Питербургский
                             </div>
                         </div>
                     </div>
@@ -69,10 +90,22 @@
             load_header_profile();
             generateFooter();
             let branches = document.getElementsByClassName('filial-img');
-            for (let i of branches) 
+            for (let i = 0; i < branches.length; i++) 
             {
-                i.addEventListener('click', () => {
-                    
+                branches[i].addEventListener('click', () => {
+                    let filial_name = "";
+                    if (branches[i].id === 'chelab')
+                        filial_name = 'Челябинский';
+                    else if (branches[i].id === 'moscow')
+                        filial_name = 'Московский';
+                    else if (branches[i].id === 'barn')
+                        filial_name = 'Барнаульский';
+                    else if (branches[i].id === 'novosibirsk')
+                        filial_name = 'Новосибирский';
+                    else if (branches[i].id === 'pither')
+                        filial_name = 'Питербургский';
+                    let cars = getCarsByFilialName(filial_name);
+                    showCars(Object.keys(cars));
                 });
             }
         </script>

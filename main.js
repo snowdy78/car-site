@@ -5,7 +5,7 @@ function generateFooter()
         <div class=page-block>
         <div class=page-lists>
             <div class=page-list>
-                <a class="page font-gray" href="car-select.html">
+                <a class="page font-gray" href="booking.html">
                     Аренда
                 </a>
                 <a class="page font-gray" href="cards.html">
@@ -42,7 +42,7 @@ function generateHeader()
     header.innerHTML = `
         <div class="logo-element font-r fam-kaus" onclick="window.location.href='index.html';">
         </div>
-        <div class="element font-l br-d3" onclick="window.location.href='car-select.html';">
+        <div class="element font-l br-d3" onclick="window.location.href='booking.html';">
             Аренда
         </div>
         <div class="element font-l br-d3" onclick="window.location.href='cards.html';">
@@ -62,7 +62,7 @@ function generateHeader()
                 <div class=elem onclick="window.location.href='register.html'">
                     Регистрация
                 </div>
-                <div class=elem onclick="window.location.href='car-select.html'">
+                <div class=elem onclick="window.location.href='booking.html'">
                     Аренда
                 </div>
                 <div class=elem onclick="window.location.href='cards.html'">

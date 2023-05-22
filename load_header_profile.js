@@ -29,12 +29,12 @@ function load_header_profile()
         {
             unlogged_header.id = "logged-header";   
             unlogged_header.className = 'log-header-template-columns bg-d2';
-            unlogged_header.appendChild(prof_case);
+            unlogged_header.insertBefore(prof_case, unlogged_header.childNodes[8]);
         }
         else 
         {
             logged_header.className = 'log-header-template-columns bg-d2';
-            logged_header.appendChild(prof_case);
+            logged_header.insertBefore(prof_case, logged_header.childNodes[8]);
         }
     }
     else
@@ -56,13 +56,13 @@ function load_header_profile()
         {
             logged_header.id = 'no-log-header';
             logged_header.className = 'no-log-header-template-columns bg-d2';
-            logged_header.appendChild(log_case);
-            logged_header.appendChild(reg_case);    
+            logged_header.insertBefore(log_case, logged_header.childNodes[8]);
+            logged_header.insertBefore(reg_case, logged_header.childNodes[9]);    
         }
         else {
             unlogged_header.className = 'no-log-header-template-columns bg-d2';
-            unlogged_header.appendChild(log_case);
-            unlogged_header.appendChild(reg_case);
+            unlogged_header.insertBefore(log_case, unlogged_header.childNodes[8]);
+            unlogged_header.insertBefore(reg_case, unlogged_header.childNodes[9]);
         }
     }
     let nav = document.getElementById('nav-menu');
@@ -82,7 +82,7 @@ function load_header_profile()
             elems[0].setAttribute('onclick', 
                 "window.location.href = 'profile.html';");
             elems[1].setAttribute('onclick', 
-                "window.location.href = 'history.html';");
+                "window.location.href = 'profile.html';");
         }
         else 
         {
