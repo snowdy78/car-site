@@ -815,7 +815,7 @@
 }
 #profile-content {
     display:grid;
-    width:100%;
+    width:90%;
     height:fit-content;
     color: var(--font-color-l);
     justify-self: center;
@@ -832,18 +832,28 @@
     height: 400px;
     justify-self: center;
     align-self:center;
-    margin: 1%;
+    margin:1%;
     grid-template-columns: 100%;
     grid-template-rows: 200px 75px 75px 50px;
     border: 5px outset black;
     background-color:#27262B;
     border-radius: 20px;
 }
+#profile-content .history-car-row-template {
+    grid-template-rows: 200px 75px 125px;
+}
+
 #profile-content .car>.car-image {
     width: 100%;
     height: 200px;
     border-radius:15px;
     background-size: 100% 100%;
+}
+#profile-content .buttons>.button {
+    display:inline;
+    margin-right: 2.5%;
+    margin-left: 2.5%;
+    text-align: center;
 }
 
 #profile-content .order {
@@ -854,18 +864,29 @@
     border: 5px outset red;
     border-radius: 20px;
     background-color: #27262B;
-    padding-bottom: 50px;
+    padding: 5%;
+    margin-bottom:2.5%;
+    margin-bottom:2.5%;
 }
 #profile-content .order-cars {
     display: inline-block;
-    width: 96%;
     justify-self: center;
     
-    background-color: #27262B;
     padding-bottom: 50px;
 }
-#profile-content .order-name {
-    font-size:20px;
+#profile-content .order-number {
+    height:50px;
+    font-size:30px;
+    color: var(--font-color-l);
+    justify-self: center;
+    align-self: center;
+}
+#profile-content .order-price {
+    height:50px;
+    font-size: 20px;
+    color: var(--font-color-l);
+    justify-self: start;
+    align-self: center;
 }
 #profile-content .car>.name {
     height: fit-content;
@@ -884,6 +905,7 @@
 #profile-content .car>.button {
     height: 80%;
     margin-bottom:20%;
+    
 }
 #profile-content .card {
     display: inline-grid;
@@ -900,6 +922,11 @@
     box-shadow: 5px 3px 0px black;
     text-shadow: 1px 1px 0px black;
 }
+
+#profile-content .order-name {
+
+    text-align: center;
+}
 #profile-content .card-number {
     justify-self: start;
     align-self: center;
@@ -915,6 +942,7 @@
     width:100%;
     height:100%;
     font-size:20px;
+    font-family: 'Comfortaa';
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -937,7 +965,7 @@
 
 
 .profile-name-font {
-    padding-top: 2em;
+    padding-top: 30px;
     font-size:2.5em;
     font-family: 'Comfortaa';
     

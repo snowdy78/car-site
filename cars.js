@@ -106,7 +106,6 @@ let cars_json = {
         "img": "img/c15.png"
     }
 };
-
 function getOrders()
 {
     let str_orders = sessionStorage.getItem("orders");
@@ -117,82 +116,90 @@ function getOrders()
     }
     return JSON.parse(str_orders);
 }
-function appendOrder(ids_of_cars) 
-{
-    let orders = getOrders();
-    let order = {};
-    for (let id of ids_of_cars)
+class CarStorage {
+    constructor(name, default_="{}") 
     {
-        order[id] = cars_json[id];
+        this.storage_name = name;
+        let str = sessionStorage.getItem(name);
+        if (str === null)
+        {
+            str = default_;
+            sessionStorage.setItem(name, str);
+        }
+        this.items = JSON.parse(str);
     }
-    let order_id = Object.keys(orders).length;
-    orders[order_id] = order;
-    sessionStorage.setItem('orders', JSON.stringify(orders));
+    get(id)
+    {
+        if (this.items[id] === undefined)
+        {
+            this.items[id] = {};
+        }
+        return this.items[id];
+    }
+    updateData() 
+    {
+        console.log(this.items);
+        sessionStorage.setItem(this.storage_name, JSON.stringify(this.items));
+    }
+    append(item)
+    {
+        let item_id = Object.keys(this.items).length;
+        this.items[item_id] = item;
+        this.updateData();
+    }
+    insert(item_id, car_id, car)
+    {
+        if (this.items[item_id] === undefined)
+        {
+            this.items[item_id] = {};
+        }
+        this.items[item_id][car_id] = car;
+        this.updateData();
+    }
+    erase(item_id) 
+    {
+        if (this.items[item_id] === undefined) 
+            return;
+        if (Object.keys(this.items).length > 0)
+        {
+            for (let car of Object.keys(this.items[item_id]))
+            {
+                delete this.items[item_id][car];
+            }
+            delete this.items[item_id];
+        }
+        else 
+        {
+            this.items[item_id] = {};
+        }
+        this.updateData();
+    }
+    eraseFrom(item_id, car_id)
+    {
+        if (this.items[item_id] === undefined)
+        {
+            return;
+        }
+        else if (this.items[item_id] === undefined)
+        {
+            return;
+        } 
+        delete this.items[item_id][car_id];
+        if (Object.keys(this.items).length > 0 && Object.keys(this.items[item_id]).length === 0)
+        {
+            delete this.items[item_id];
+        }
+        this.updateData();
+
+    }
 }
 
-function appendToOrder(order_id, car_id) 
+function rend(id, price_multiplier = 1)
 {
-    let orders = getOrders();
-    if (orders[order_id] === undefined)
-    {
-        appendOrder([]);
-        return;
-    }
-    orders[order_id][car_id] = cars_json[car_id];
-    
-    sessionStorage.setItem('orders', JSON.stringify(orders));
-}
-function eraseOrder(order_id)
-{
-    let orders = getOrders();
-    if (orders[order_id] === undefined) 
-        return;
-    if (Object.keys(orders).length > 0)
-    {
-        for (let car of Object.keys(orders[order_id]))
-        {
-            delete orders[order_id][car];
-        }
-        delete orders[order_id];
-    }
-    else 
-    {
-        order[order_id] = {};
-    }
-    sessionStorage.setItem('orders', JSON.stringify(orders));
-}
-function eraseFromOrder(order_id, car_id) 
-{
-    let orders = getOrders();
-    if (orders[order_id] === undefined)
-    {
-        return;
-    }
-    else if (orders[order_id] === undefined)
-    {
-        return;
-    } 
-    delete orders[order_id][car_id];
-    if (Object.keys(orders).length > 0 && Object.keys(orders[order_id]).length === 0)
-    {
-        delete orders[order_id];
-    }
-    sessionStorage.setItem('orders', JSON.stringify(orders));
-}
-function rend(id)
-{
-    let car_str = sessionStorage.getItem('selected-cars');
-    let orders = getOrders();
-    if (car_str === null)
-    { 
-        sessionStorage.setItem("selected-cars", "{}");
-        car_str = "{}";
-    }
-    let selected_cars = JSON.parse(car_str);
-    selected_cars[id] = cars_json[id];
-    
-    appendToOrder(0, id);
-    sessionStorage.setItem("selected-cars", JSON.stringify(selected_cars));
+    let orders = new CarStorage('orders');
+    let car = new Object(cars_json[id]);
+    car["price"] *= price_multiplier;
+    orders.insert(0, id, car);
 }
 function hideCarDetails() {
     let before_car_d = document.getElementById('car-details');
@@ -211,7 +218,6 @@ function getCarsByFilialName(filial_name)
         }
     }
     return cars;
-
 }
 function showCarDetails(car_id) 
 {
@@ -263,11 +269,11 @@ function showCarDetails(car_id)
             Цена: ${car['price']}р.
         </div>
         <div class="text w100-box flex x-center">
-            <input type="button" class="button" onclick="rend(${car_id})" value="Аренда">
+            <input id="rent-btn" type="button" class="button" onclick="rend(${car_id})" value="Аренда">
         </div>
     `;
     content.appendChild(car_details);
-    let f = () => {
+    let f = function(car_id)  {
         
         let dc = document.getElementById('daycount'); // day count
         let car_price = document.getElementById('car-rend-price');
@@ -280,11 +286,14 @@ function showCarDetails(car_id)
         ed.setDate(srd.getDate()+(+dc.value));
         let end_date = document.getElementById('end-date');
         end_date.textContent = `Дата конца аренды: ${ed.getDate()}.${ed.getMonth() + 1}.${ed.getFullYear()}`;
-
+        let rent_btn = document.getElementById('rent-btn');
+        rent_btn.onclick = () => {
+            rend(car_id, day_count);
+        };
     }
     let dc = document.getElementById('daycount'); // day count
-    dc.addEventListener('keyup', f);
-    dc.addEventListener('mouseup', f);
+    dc.addEventListener('keyup', () => {f(car_id)});
+    dc.addEventListener('mouseup', () => {f(car_id)});
 }
 function showCars(ids) 
 {
@@ -333,6 +342,7 @@ function showCars(ids)
 function generateCars() 
 {
     let car_field = document.getElementById('content').getElementsByClassName('car-select')[0];
+    let orders = new CarStorage('orders');
     let len = Object.keys(cars_json).length;
     for (let i = 0; i < len; i++)
     {
@@ -344,9 +354,14 @@ function generateCars()
         car_cell.appendChild(car_img);
         let car_descr_block = document.createElement('div');
         car_descr_block.className = 'car-descr-block';
+        let str = "";
+        if (Object.keys(orders.items).length != 0 && orders.items[0][i] !== undefined)
+        {
+            str = "<a style='color:coral;'>(Добавлено)</a>";
+        }
         car_descr_block.innerHTML = `
             <div class="car-name">
-                ${cars_json[i]["name"]}
+                ${cars_json[i]["name"]} ${str}
             </div>
             <div class="price x-left lmar-10">
                 от ${cars_json[i]["price"]}р./сутки
