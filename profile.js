@@ -43,16 +43,77 @@ function loadRenting()
 {
     let content = document.getElementById('profile-content');
     let renting = document.createElement('div');
-    let sel_cars = JSON.parse(sessionStorage.getItem("selected-cars"));
-    if (sel_cars === null)
+    let orders = getOrders();
+    if (orders === null)
     { 
         renting.className = '';
         renting.innerHTML = `
             вы ничего не выбирали 
         `;
     }
-    else {
-        // load...
+    else 
+    {
+        for (let order of Object.keys(orders))
+        {
+            let order_block = document.createElement('div');
+            order_block.className = 'order';
+            let order_cars = document.createElement('div');
+            order_cars.className = 'order-cars';
+            let buttons = document.createElement('div');
+            let accept_order = document.createElement('div');
+            accept_order.type = 'button';
+            accept_order.className = 'button';
+            accept_order.onclick = () => {
+                // moving oreder to order history
+            };
+            accept_order.value = 'Оформить';
+            let cancel_order = document.createElement('input');
+            cancel_order.type = 'button';
+            cancel_order.className = 'button';
+            cancel_order.onclick = () => {
+                eraseOrder(order);
+                order_block.remove();
+            };
+            cancel_order.value = 'Отменить';
+            buttons.appendChild(accept_order);
+            buttons.appendChild(cancel_order);
+            console.log(Object.keys(orders[order]));
+            for (let start of Object.keys(orders[order]))
+            {
+                let car = document.createElement('div');
+                car.className = 'car';
+                let car_price = document.createElement('div');
+                let car_name = document.createElement('div');
+                let cancel_car_btn = document.createElement('input');
+                cancel_car_btn.type = 'button';
+                cancel_car_btn.className = 'button';
+                cancel_car_btn.onclick = () => {
+                    eraseFromOrder(order, start);
+                    car.remove();
+                    if (Object.keys(orders[order]).length == 0)
+                    {
+                        order_block.remove();   
+                    }
+                };
+            
+                cancel_car_btn.value = 'Убрать';
+                car_name.className = 'name';
+                car_name.textContent = cars_json[start]['name'];
+                car_price.className = 'price';
+                car_price.textContent = `${cars_json[start]["price"]}р./сутки`
+                let car_img = document.createElement('div');
+                car_img.className = 'car-image';
+                car_img.style.backgroundImage = `url(${cars_json[start]["img"]})`;
+                car.appendChild(car_img);
+                car.appendChild(car_name);
+                car.appendChild(car_price);
+                car.appendChild(cancel_car_btn);
+                order_cars.appendChild(car);
+            }
+            order_block.appendChild(order_cars);
+            order_block.appendChild(buttons);
+            renting.appendChild(order_block);
+        }    
     }
     content.appendChild(renting);
 

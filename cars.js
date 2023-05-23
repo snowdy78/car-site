@@ -107,10 +107,82 @@ let cars_json = {
     }
 };
 
+function getOrders()
+{
+    let str_orders = sessionStorage.getItem("orders");
+    if (str_orders === null)
+    {
+        str_orders = "{}";
+        sessionStorage.setItem("orders", str_orders);
+    }
+    return JSON.parse(str_orders);
+}
+function appendOrder(ids_of_cars) 
+{
+    let orders = getOrders();
+    let order = {};
+    for (let id of ids_of_cars)
+    {
+        order[id] = cars_json[id];
+    }
+    let order_id = Object.keys(orders).length;
+    orders[order_id] = order;
+    sessionStorage.setItem('orders', JSON.stringify(orders));
+}
 
+function appendToOrder(order_id, car_id) 
+{
+    let orders = getOrders();
+    if (orders[order_id] === undefined)
+    {
+        appendOrder([]);
+        return;
+    }
+    orders[order_id][car_id] = cars_json[car_id];
+    
+    sessionStorage.setItem('orders', JSON.stringify(orders));
+}
+function eraseOrder(order_id)
+{
+    let orders = getOrders();
+    if (orders[order_id] === undefined) 
+        return;
+    if (Object.keys(orders).length > 0)
+    {
+        for (let car of Object.keys(orders[order_id]))
+        {
+            delete orders[order_id][car];
+        }
+        delete orders[order_id];
+    }
+    else 
+    {
+        order[order_id] = {};
+    }
+    sessionStorage.setItem('orders', JSON.stringify(orders));
+}
+function eraseFromOrder(order_id, car_id) 
+{
+    let orders = getOrders();
+    if (orders[order_id] === undefined)
+    {
+        return;
+    }
+    else if (orders[order_id] === undefined)
+    {
+        return;
+    } 
+    delete orders[order_id][car_id];
+    if (Object.keys(orders).length > 0 && Object.keys(orders[order_id]).length === 0)
+    {
+        delete orders[order_id];
+    }
+    sessionStorage.setItem('orders', JSON.stringify(orders));
+}
 function rend(id)
 {
     let car_str = sessionStorage.getItem('selected-cars');
+    let orders = getOrders();
     if (car_str === null)
     { 
         sessionStorage.setItem("selected-cars", "{}");
@@ -118,8 +190,8 @@ function rend(id)
     }
     let selected_cars = JSON.parse(car_str);
     selected_cars[id] = cars_json[id];
-    console.log(cars_json[id]);
-    console.log(selected_cars);
+    
+    appendToOrder(0, id);
     sessionStorage.setItem("selected-cars", JSON.stringify(selected_cars));
 }
 function hideCarDetails() {
