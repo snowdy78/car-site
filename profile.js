@@ -95,7 +95,6 @@ function loadRenting()
             cancel_order.className = 'button';
             cancel_order.onclick = () => {
                 orders.erase(order);
-                console.log(order_block);
                 order_block.remove();
                 let prof_content = document.getElementById('profile-content');
                 let order_blocks = prof_content.getElementsByClassName('order');

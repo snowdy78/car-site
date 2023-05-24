@@ -7,7 +7,7 @@
         <link href="style.css" rel="stylesheet">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <script src="cars.js"></script>
      </head>
     <body>
         <div id="no-log-header" class="no-log-header-template-columns bg-d2">
@@ -15,39 +15,42 @@
         </div>
 
         <div id="content" class="bg-l">
-            <div class="t-grid-bg">
-                <div class="t-grid">
-                    <div class="descr-grid dg-left bg-d" onclick="window.location.href='car-select.html';">
-                        <div id="e2" class="txt-elem font-l cursor-pointer">
-                            &gt; &gt; &gt; Аренда Автомобиля
-                        </div>
-                        <div id="e1" class="img-elem cursor-pointer">
-
-                        </div>
-                    </div>
-                    <div class="descr-grid dg-right bg-d font-d2" onclick="window.location.href='branches.html';">
-                        <div id="e3" class="img-elem cursor-pointer">
-
-                        </div>
-                        <div id="e4" class="txt-elem font-l cursor-pointer">
-                            Наши филиалы &lt; &lt; &lt;
-                        </div>
-                    </div>
-                </div>
+            <div class="t-grid-bg main-background">
+                <div class="tmar-5">
+                    Выберите нас.<br>
+                    уже более 97% человек нам доверяют!
+                </div> 
             </div>
             <div class="news-block bg-d font-l">
                 <h1>
                     Новости
                 </h1>
-                <div class="news-grid ">
-                    <div class=new>
-                        a;sdjnf;asdnf;sandfasdfsa dfsafasdfgsdfg
+                <div class="news-grid">
+                    <div class="new" onclick="showCarDetails(10);">
+                        <h4 align="center"c>Лучшее предложение</h4>
+                        <div class="image" style="background-image: url(img/c11.png);"></div>
+                        Модели 718 созданы для жизни в спортивном стиле. 
+                        Это среднемоторные спортивные автомобили, которые 
+                        хранят в себе спортивный дух легендарного Porsche 
+                        718 и отличаются современной техникой, демонстрируя 
+                        это потрясающее сочетание на дорогах нашего мира. 
+                        С одной лишь целью: добавить эмоции в будни.
                     </div>
-                    <div class=new>
-                        asdfiasfd
+                    <div class="new" onclick="showCarDetails(3)">
+                        <h4 align="center"c>Дешевое предложение</h4>
+                        <div class="image" style="background-image: url(img/c4.png);"></div>
+                        Land Cruiser 200 / Ленд Крузер 200 — особенный автомобиль для компании 
+                        Toyota / Тойота. Сочетая беспрецедентную надежность, функциональность 
+                        и комфорт автомобиля класса «премиум», новое поколение легендарного
+                        внедорожника продолжает славные традиции предшественников.
                     </div>
-                    <div class=new>
-
+                    <div class="new">
+                        <h4 align="center"c>Семейное предложение</h4>
+                        <div class="image" style="background-image: url(img/c4.png);"></div>
+                        BMW X5 30d, 2020 имеет отличную цену для путешествия вместе с вашей 
+                        семьей. Этот внедорожник иммет большой багажник, много пространства, 
+                        что обеспечивает пассажиру много комфорта и уюта. Также он иммеет кондиционер
+                        и обогреватель, на случай переменной температуры во время поездки.
                     </div>
                 </div>
             </div>
